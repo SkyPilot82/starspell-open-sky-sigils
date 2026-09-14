@@ -111,6 +111,43 @@
 
   .droprow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px;margin-top:14px}
 
+  /* ------- the sigil ROWS (the real surface) ------- */
+  .phone{width:min(350px,100%);margin:0 auto;background:#070a18;border:1.5px solid #232a52;border-radius:30px;
+         padding:22px 12px 18px;box-shadow:0 12px 40px rgba(0,0,0,.55)}
+  .phone .act{font-size:10px;letter-spacing:.3em;color:#39406b;text-align:center}
+  .phone .choose{font-size:15px;letter-spacing:.22em;color:var(--gold);text-align:center;margin:12px 0 14px;
+         text-shadow:0 0 14px rgba(232,199,106,.4)}
+  .phone .ghostbtns{display:flex;justify-content:space-between;margin-top:16px;padding:0 6px}
+  .phone .gb{font-size:11px;letter-spacing:.18em;color:#2c3357;border:1px solid #1c2344;border-radius:10px;padding:8px 18px}
+  .sigrow{position:relative;aspect-ratio:1680/720;border-radius:14px;overflow:hidden;margin:10px 0}
+  .sigrow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .sigrow .lglow{inset:0;border-radius:14px;
+         background:radial-gradient(ellipse 44% 54% at 50% 55%,rgba(255,150,50,.30),transparent 70%)}
+  .rowpanel{position:absolute;display:flex;align-items:center;gap:3.5%;padding:0 1%;pointer-events:none}
+  .roundel{flex:none;height:78%;aspect-ratio:1/1;border-radius:50%;display:flex;align-items:center;justify-content:center;
+           border:1.5px solid;box-shadow:inset 0 0 12px rgba(0,0,0,.5)}
+  .roundel span{line-height:1}
+  .rowtx{flex:1;text-align:center;min-width:0}
+  .rowtx .nm{letter-spacing:.16em;line-height:1.3}
+  .rowtx .ds{font-style:italic;line-height:1.4;opacity:.92}
+  .rowtx .gr{letter-spacing:.3em;font-size:.75em;opacity:.85;margin-top:1.5%}
+  .ink-common .roundel{border-color:#d7b45c;color:#f4e6bd;background:rgba(10,8,4,.4)}
+  .ink-rare .roundel{border-color:#6fa8ff;color:#d4e4ff;background:rgba(4,8,20,.4)}
+  .ink-epic .roundel{border-color:#ba6be0;color:#eed9ff;background:rgba(12,4,20,.4)}
+  .ink-legend .roundel{border-color:#ffb066;color:#ffedc0;background:rgba(20,8,2,.4)}
+  .bigrows{max-width:780px;margin:0 auto}
+  .bigrows .rowtx .nm{font-size:19px}
+  .bigrows .rowtx .ds{font-size:13.5px}
+  .bigrows .roundel span{font-size:30px}
+  .phone .rowtx .nm{font-size:11.5px;letter-spacing:.12em}
+  .phone .rowtx .ds{font-size:9px}
+  .phone .roundel span{font-size:15px}
+  @media(max-width:640px){
+    .bigrows .rowtx .nm{font-size:13.5px;letter-spacing:.12em}
+    .bigrows .rowtx .ds{font-size:10.5px}
+    .bigrows .roundel span{font-size:20px}
+  }
+
   /* ------- questions ------- */
   .q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:14px 0}
   .q .qq{color:var(--ink);font-size:14.5px;margin:0 0 10px}
@@ -163,6 +200,12 @@
     <code>rare · REROLL c3007204-28c7-45a8-b41a-84ba27afcb85 — "… deep sapphire cobalt blue glowing crystal, gentle icy blue glow … --no text, letters, words, runes, orange, pink, gold". The first roll (da1d3a12-5af0-44b3-bcb4-b4f0fac8c929, "glowing sapphire blue crystal") drifted off-blue toward lavender/gold under the warm sref — its four frames are kept in the alternates, flagged.</code>
     <code>epic · 99adf29a-f46f-41e7-87bc-229b51242d4b — "… glowing amethyst purple crystal with wisps of violet starlight …"</code>
     <code>legendary · f856b7bc-3c37-474c-bccb-e930d573508c — "… blazing glowing orange ember light, radiant molten gold-orange glow with drifting sparks …"</code>
+    <code>THE ROW RESHAPE (after Skylar's CHOOSE-A-SIGIL screenshot; same formula, subject = "a wide horizontal ornate
+    game banner frame … an empty circular medallion socket set into the left side … a wide plain dark empty panel",
+    --ar 7:3): row common 92bcfc6c-94fa-4bfe-a634-aa381d0194b3 · row rare GLASS ROLL d955ebf2-8743-4595-8726-5a6df9283b34
+    (came back as transparent windows — no dark panel; kept in the alternates, flagged) · row rare DARK REROLL
+    d05d7bad-05a3-49e9-9f94-5531eee8b409 ("… solid very dark navy empty panel … --no transparent glass window") ·
+    row epic 7d0a1b38-a31d-476e-b31e-015ffefe9dfa · row legendary 6ca61e73-5c87-4267-b287-4858c17799d5.</code>
   </details></div>
 
   <h2>I · THE OPEN SKY, ALIVE</h2>
@@ -197,12 +240,82 @@
   <h3>PICK THE SKY — 8 FRAMES CAME BACK (chip = your pick)</h3>
   <div class="altrow" id="skyalts"></div>
 
-  <h2>II · THE FOUR SIGIL RECTANGLES</h2>
-  <p class="sub">One rectangle per rarity, all four sref'd to the same anchor so they sit in one world: carved
-  <b style="color:var(--c-common)">brown</b> for common, sapphire <b style="color:var(--c-rare)">blue</b> for rare,
-  amethyst <b style="color:var(--c-epic)">purple</b> for epic, and a <b style="color:var(--c-legend)">glowing
-  orange</b> legendary that breathes, sparks and shimmers. The text inside is real game text — EMBER QUILL climbing
-  its own four-step ladder, I&nbsp;→&nbsp;IV, the one sigil in the book whose ladder touches every grade.</p>
+  <h2>II · THE SIGIL ROWS</h2>
+  <p class="sub">Reshaped to the real surface after Skylar's screenshot of CHOOSE A SIGIL: the game's sigil card is a
+  <b>wide, short row</b> — icon roundel on the left, name and effect to the right — so the four rarities were rerolled
+  at that shape (same anchor, same formula, ~7:3). Carved <b style="color:var(--c-common)">brown</b> for common,
+  sapphire <b style="color:var(--c-rare)">blue</b> for rare, amethyst <b style="color:var(--c-epic)">purple</b> for
+  epic, a <b style="color:var(--c-legend)">glowing orange</b> legendary that breathes, sparks and shimmers. The first
+  night's portrait plaques didn't fit this surface — they moved to §III.</p>
+
+  <div class="stage">
+    <div style="flex:0 0 auto;width:min(350px,100%);margin:0 auto">
+      <div class="phone">
+        <div class="act">ACT I · THE MEADOW SKY</div>
+        <div class="choose">— CHOOSE A SIGIL —</div>
+        <div class="sigrow"><img src="art/row_common.webp" alt="common row — carved wood and bronze">
+          <div class="rowpanel ink-common" style="left:23%;top:38%;width:55%;height:39%">
+            <div class="roundel"><span>❦</span></div>
+            <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="ds">Every word deals +4 damage.</div></div>
+          </div></div>
+        <div class="sigrow"><img src="art/row_rare.webp" alt="rare row — sapphire crystal">
+          <div class="rowpanel ink-rare" style="left:18%;top:37%;width:64%;height:42%">
+            <div class="roundel"><span>↯</span></div>
+            <div class="rowtx"><div class="nm">STORMBINDER</div><div class="ds">Every third word you cast strikes twice.</div></div>
+          </div></div>
+        <div class="sigrow"><div class="lglow"></div><img src="art/row_legendary.webp" alt="legendary row — molten ember">
+          <div class="rowpanel ink-legend" style="left:20%;top:33%;width:62%;height:39%">
+            <div class="roundel"><span>❋</span></div>
+            <div class="rowtx"><div class="nm">PHOENIX FEATHER</div><div class="ds">Once per run, survive death at 1 health.</div></div>
+          </div></div>
+        <div class="ghostbtns"><span class="gb">SCRY ↻</span><span class="gb">CAST</span></div>
+      </div>
+      <div class="cap">THE PICK SHEET, WEARING THE ROWS — A COMMON, A RARE, A LEGENDARY SURFACED</div>
+    </div>
+    <div class="herotext">
+      <p><b>How they fit.</b> Each row is the MJ banner itself — the frame painted at the row's own shape, the icon
+      roundel and the real game text laid into its dark panel exactly where the current baked chrome puts them. On a
+      build, each frame is cut off its painted backdrop and composited on the game's navy, so the rows sit on the
+      screen the way today's gold ones do; the roundel and text stay live text, never baked in.</p>
+      <p><b>The rarity story at a glance:</b> a common's quiet wood, a rare's cool crystal, a legendary arriving like
+      an ember — unmistakable down a stack of three, which is the entire job of rarity dress.</p>
+    </div>
+  </div>
+
+  <h3>THE FOUR RARITIES — EMBER QUILL CLIMBING ITS LADDER, I → IV</h3>
+  <p class="sub" style="font-size:13px">Real game text; the one sigil in the book whose ladder touches every grade.
+  The legendary row breathes, sparks and shimmers — build note: that motion is re-added in-engine, never baked.</p>
+  <div class="bigrows">
+    <div class="sigrow"><img src="art/row_common.webp" alt="">
+      <div class="rowpanel ink-common" style="left:23%;top:38%;width:55%;height:39%">
+        <div class="roundel"><span>❦</span></div>
+        <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">COMMON · I</div><div class="ds">Every word deals +4 damage.</div></div>
+      </div></div>
+    <div class="sigrow"><img src="art/row_rare.webp" alt="">
+      <div class="rowpanel ink-rare" style="left:18%;top:37%;width:64%;height:42%">
+        <div class="roundel"><span>❦</span></div>
+        <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">RARE · II</div><div class="ds">Every word deals +6 damage.</div></div>
+      </div></div>
+    <div class="sigrow"><img src="art/row_epic.webp" alt="">
+      <div class="rowpanel ink-epic" style="left:24%;top:36%;width:50%;height:41%">
+        <div class="roundel"><span>❦</span></div>
+        <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">EPIC · III</div><div class="ds">Every word deals +8 damage.</div></div>
+      </div></div>
+    <div class="sigrow"><div class="lglow"></div><img src="art/row_legendary.webp" alt="">
+      <div class="rowpanel ink-legend" style="left:20%;top:33%;width:62%;height:39%">
+        <div class="roundel"><span>❦</span></div>
+        <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">LEGENDARY · IV</div><div class="ds">Every word deals +11 damage.</div></div>
+      </div></div>
+    <div class="cap">THE SAME ROWS AT READING SIZE — PICK FRAMES BELOW</div>
+  </div>
+
+  <h3>PICK EACH ROW — 4 FRAMES PER RARITY (chip = your pick)</h3>
+  <div id="rowalts"></div>
+
+  <h2>III · THE MONUMENT SHAPE (the first roll of the night)</h2>
+  <p class="sub">The night's first four came back as portrait monuments — beautiful, and the wrong shape for the pick
+  sheet. Kept here for one honest question: the game has full-screen sigil moments (the forge, a legendary's
+  arrival fanfare) where a monument could stand. Keep them for that, or let them go?</p>
 
   <div class="plaques">
     <div class="plq">
@@ -219,7 +332,7 @@
           <div class="rar">RARE</div><div class="icon">❦</div><div class="nm">EMBER QUILL</div>
           <div class="grade">II</div><div class="ds">Every word deals +6 damage.</div>
         </div></div>
-      <div class="cap">RARE · SAPPHIRE CRYSTAL (REROLLED TRUE-BLUE — FIRST ROLL KEPT BELOW)</div>
+      <div class="cap">RARE · SAPPHIRE CRYSTAL (REROLLED TRUE-BLUE)</div>
     </div>
     <div class="plq">
       <div class="plqart"><img src="art/sig_epic.webp" alt="epic plaque — amethyst purple crystal">
@@ -238,38 +351,13 @@
       <div class="cap">LEGENDARY · MOLTEN EMBER — BREATHES, SPARKS &amp; SHIMMERS</div>
     </div>
   </div>
+  <div class="q" style="margin-top:14px"><div class="opts">
+    <button class="chip" data-g="monuments" data-v="keep">KEEP FOR A FULL-SCREEN MOMENT</button>
+    <button class="chip" data-g="monuments" data-v="drop">LET THEM GO</button>
+  </div><p class="qq" style="margin:10px 0 0;font-size:12.5px;color:var(--dim)">If KEEP — name the frames you'd keep in
+  the notes box below (these four are the picks of each set; the full alternates live in the repo).</p></div>
 
-  <h3>THE SAME RECTANGLES DRESSING DROPS</h3>
-  <p class="sub" style="font-size:13px">The rarity words also name what falls in a hunt — so here is each rectangle
-  holding a different sigil, the way a drop card or the forge would wear it.</p>
-  <div class="droprow">
-    <div class="plq">
-      <div class="plqart"><img src="art/sig_common.webp" alt="">
-        <div class="panel ink-common" style="left:27%;top:23.4%;width:46%;height:61.8%">
-          <div class="rar">COMMON</div><div class="icon">☾</div><div class="nm">MOON SALVE</div>
-          <div class="ds">Words of 5+ letters heal you 4.</div>
-        </div></div>
-    </div>
-    <div class="plq">
-      <div class="plqart"><img src="art/sig_rare.webp" alt="">
-        <div class="panel ink-rare" style="left:29%;top:27%;width:42%;height:54%">
-          <div class="rar">RARE</div><div class="icon">↯</div><div class="nm">STORMBINDER</div>
-          <div class="ds">Every third word you cast strikes twice.</div>
-        </div></div>
-    </div>
-    <div class="plq">
-      <div class="plqart"><div class="lglow"></div><img src="art/sig_legendary.webp" alt="">
-        <div class="panel ink-legend" style="left:29%;top:28.1%;width:42%;height:53.6%">
-          <div class="rar">LEGENDARY</div><div class="icon">❋</div><div class="nm">PHOENIX FEATHER</div>
-          <div class="ds">Once per run, survive death at 1 health.</div>
-        </div></div>
-    </div>
-  </div>
-
-  <h3>PICK EACH RECTANGLE — 4 FRAMES PER RARITY (chip = your pick)</h3>
-  <div id="sigalts"></div>
-
-  <h2>III · THREE QUESTIONS</h2>
+  <h2>IV · THREE QUESTIONS</h2>
   <div class="q"><p class="qq"><b>Q1 · THE LEGENDARY COLOR.</b> You called legendary <i>glowing orange</i>, and the
     plaque above wears it. In the game today, legendary dress is <b>gold</b> everywhere — the drop card's gold rays,
     the grade-IV ink, the award fanfare. Does orange become the legendary color of the whole game, or does gold keep
@@ -296,17 +384,17 @@
     </div>
     <textarea class="notes" id="noteBox" placeholder="notes — combinations, second thoughts, anything (saved on this device, goes into COPY VERDICTS)"></textarea></div>
 
-  <h2>IV · WHAT A BUILD WOULD COST (honest)</h2>
+  <h2>V · WHAT A BUILD WOULD COST (honest)</h2>
   <div class="note">
     <b>The open sky:</b> small. Cut the picked frame to 512×768 like the zodiac set (~40KB), load it exactly as the
     twelve signed cards load theirs, one version bump; the living layer, the census pins and the ?twinkle=0 seam are
     already shipped and untouched. <b>~half a day with suite re-proof.</b><br><br>
-    <b>The rectangles:</b> real work. MJ frames are scenic paintings — a build cuts each plaque off its hills with an
-    authored mask (never a color key), measures the hue thresholds, and <i>re-cuts the border as stretchable slices</i>,
-    because a fixed-proportion picture can't hold two-line and five-line sigil text alike; the legendary's glow,
-    sparks and shimmer get re-added in-engine, since baked light on a scaled sprite peels like a sticker. One family,
-    many surfaces (drop cards, forge, sign pages, the versus inspector) — sized per surface at build time.
-    <b>~2–2.5 days for the family.</b><br><br>
+    <b>The rows:</b> the shape is right, so the work is the cut, not the re-proportioning: each frame comes off its
+    painted backdrop with an authored mask (never a color key) and composites onto the game's navy; the roundel and
+    text stay live, and the pick sheet's rows are fixed-size, so no slicing is needed there. Other surfaces (forge,
+    sign pages, the versus inspector) size differently — per-surface exports, or edge slices for the simple frames;
+    the legendary's glow, sparks and shimmer are re-added in-engine, since baked light on a scaled sprite peels like
+    a sticker. <b>~1.5–2 days for the family.</b><br><br>
     <b>Orange-everywhere</b> (if Q1 says so): recolor of the legendary dress + fanfare + suites re-pinned, <b>~half a
     day</b> on top.
   </div>
@@ -318,7 +406,9 @@
   <div class="prov">Spacely (Skylar's console) · 2026-09-13 · built on Skylar's words quoted verbatim at the head of
   this page · art: six MJ jobs fired tonight, sref'd to the locked Aries B2 anchor on the frozen zodiac formula ·
   sigil text verbatim from the game's own book (data.js) · the card mock's motion mirrors the shipped v0.84.0 living
-  layer (seeded field, right-and-down crossings, bright-most-of-the-way fade).</div>
+  layer (seeded field, right-and-down crossings, bright-most-of-the-way fade). Reshaped to the row surface later the
+  same night on Skylar's CHOOSE-A-SIGIL screenshot; the portrait first roll stands in §III awaiting its
+  keep-or-drop.</div>
 </div>
 
 <div class="bar"><div class="barin">
@@ -329,7 +419,7 @@
 
 <script>
 /* ---------- state ---------- */
-var KEY='ss_open_sky_sigils_2026_09_13';
+var KEY='ss_open_sky_sigils_v2';
 var state={};
 try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
@@ -357,20 +447,20 @@ html='';
 RAR.forEach(function(r){
   html+='<h3 style="margin-top:1.2em">'+r[1]+'</h3><div class="altrow">';
   for(var n=0;n<4;n++){
-    var f=(r[0]==='rare')?('sig_rareb'+n+'_t'):('sig_'+r[0]+n+'_t');
+    var f=(r[0]==='rare')?('row_rareb'+n+'_t'):('row_'+r[0]+n+'_t');
     html+='<div class="alt"><img loading="lazy" src="art/'+f+'.webp" alt="">'
         +'<button class="chip" data-g="'+r[0]+'" data-v="'+(n+1)+'">FRAME '+(n+1)+'</button></div>';
   }
   if(r[0]==='rare'){
     for(var m=0;m<4;m++){
-      html+='<div class="alt"><img loading="lazy" src="art/sig_rare'+m+'_t.webp" alt="">'
-          +'<div class="flag">⚠ first roll — drifted off-blue; kept for the record</div>'
-          +'<button class="chip" data-g="rare" data-v="o'+(m+1)+'">FIRST ROLL '+(m+1)+'</button></div>';
+      html+='<div class="alt"><img loading="lazy" src="art/row_rare'+m+'_t.webp" alt="">'
+          +'<div class="flag">⚠ glass roll — no dark panel for the text; kept for the record</div>'
+          +'<button class="chip" data-g="rare" data-v="g'+(m+1)+'">GLASS '+(m+1)+'</button></div>';
     }
   }
   html+='</div>';
 });
-document.getElementById('sigalts').innerHTML=html;
+document.getElementById('rowalts').innerHTML=html;
 
 /* ---------- chips (single-select per group) ---------- */
 function paint(){
@@ -384,7 +474,7 @@ document.addEventListener('click',function(e){
   state[g]=(state[g]===v?null:v); save(); paint();
 });
 /* defaults: the mock's picks, first visit only */
-if(!('sky' in state)){state.sky='a1';state.common='3';state.rare='3';state.epic='3';state.legendary='3';save();}
+if(!('sky' in state)){state.sky='a1';state.common='2';state.rare='4';state.epic='2';state.legendary='4';save();}
 paint();
 var nb=document.getElementById('noteBox');
 nb.value=state.note||'';
@@ -395,7 +485,8 @@ function copyVerdicts(){
   var L=[];
   L.push('STARSPELL · the open sky & the four sigils · verdicts · page of 2026-09-13');
   L.push('sky pick: '+(state.sky||'(none)'));
-  RAR.forEach(function(r){L.push(r[0]+' rectangle: frame '+(state[r[0]]||'(none)'));});
+  RAR.forEach(function(r){L.push(r[0]+' row: frame '+(state[r[0]]||'(none)'));});
+  L.push('monuments: '+(state.monuments||'(open)'));
   L.push('Q1 legendary color: '+(state.q1||'(open)'));
   L.push('Q2 rectangles dress: '+(state.q2||'(open)'));
   L.push('Q3 open sky art: '+(state.q3||'(open)'));
@@ -473,20 +564,21 @@ function setAlive(v){
 if(alive){shootTimer=setTimeout(shoot,3800+Math.random()*3200);}
 else{setAlive(false);}
 
-/* ---------- legendary sparks + corner twinkles (both legendary plaques) ---------- */
-document.querySelectorAll('.plqart .lglow').forEach(function(g){
+/* ---------- legendary sparks + corner twinkles (monument plaques AND rows) ---------- */
+document.querySelectorAll('.plqart .lglow, .sigrow .lglow').forEach(function(g){
   var host=g.parentElement;
+  var isRow=host.classList.contains('sigrow');
   for(var k=0;k<9;k++){
     var sp=document.createElement('span');sp.className='lspark';
-    sp.style.left=(37+Math.random()*26)+'%';
-    sp.style.top=(46+Math.random()*38)+'%';
+    sp.style.left=(isRow?(26+Math.random()*46):(37+Math.random()*26))+'%';
+    sp.style.top=(isRow?(40+Math.random()*40):(46+Math.random()*38))+'%';
     sp.style.setProperty('--dx',((Math.random()*36)-18).toFixed(0)+'px');
-    sp.style.setProperty('--dy',(-(22+Math.random()*34)).toFixed(0)+'px');
+    sp.style.setProperty('--dy',(-((isRow?14:22)+Math.random()*(isRow?22:34))).toFixed(0)+'px');
     sp.style.setProperty('--du',(2.6+Math.random()*2.4).toFixed(2)+'s');
     sp.style.setProperty('--de',(Math.random()*3.4).toFixed(2)+'s');
     host.appendChild(sp);
   }
-  [[31,23],[67,25],[30,83],[68,81]].forEach(function(p){
+  (isRow?[[22,36],[76,38],[24,72],[74,70]]:[[31,23],[67,25],[30,83],[68,81]]).forEach(function(p){
     var st=document.createElement('span');st.className='lstar';st.textContent='✦';
     st.style.left=p[0]+'%';st.style.top=p[1]+'%';
     st.style.setProperty('--du',(3+Math.random()*2.5).toFixed(2)+'s');
