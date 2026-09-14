@@ -208,36 +208,41 @@
     row epic 7d0a1b38-a31d-476e-b31e-015ffefe9dfa · row legendary 6ca61e73-5c87-4267-b287-4858c17799d5.</code>
   </details></div>
 
-  <h2>I · THE OPEN SKY, ALIVE</h2>
+  <h2>I · THE OPEN SKY, ALIVE — THE 9/13 SPEC</h2>
+  <div class="quote"><span class="who">SKYLAR (SKYLAR'S CONSOLE), 2026-09-13 LATE —</span>
+  "I like the live version and we should use that. But all the lights on the ground should be removed and there
+  should be more shooting stars in the sky and more twinkling stars in the sky. All of the lights should be removed
+  below the redline … Show me what a live version of that would look like before we send it to the live game."</div>
   <div class="stage">
     <div class="cardwrap">
       <div class="livecard" id="livecard">
-        <img src="art/sky_hero.webp" alt="the open sky — MJ frame A1 of 4">
+        <img src="art/sky_hero2.webp" alt="the open sky — frame A1, ground lights removed below the ridge">
         <div class="skylayer" id="skylayer"></div>
         <div class="cardlabel"><div class="nm">THE OPEN SKY</div><div class="un">EVERY STAR AT ONCE</div></div>
       </div>
-      <div class="cap">THE UNSIGNED CARD, WEARING THE NEW ART — TWINKLE + SHOOTING STARS LIVE</div>
+      <div class="cap">HIS SPEC, LIVE — GROUND DARK BELOW THE RED LINE · TWINKLE FIELD ×2 · CROSSINGS ~2× AS OFTEN</div>
       <div class="toggles">
         <button class="tg on" id="tgAlive" onclick="setAlive(true)">ALIVE</button>
         <button class="tg" id="tgStill" onclick="setAlive(false)">STILL</button>
       </div>
     </div>
     <div class="herotext">
-      <p><b>What you are looking at.</b> The whole-card mock is the sign picker's unsigned slot-0 card wearing MJ
-      sky&nbsp;A&nbsp;frame&nbsp;1 — the same dusk gradient, meadow hills and fireflies the twelve signed cards got,
-      with nothing drawn in the sky. The twinkling and the shooting stars riding over it are this page's mirror of the
-      living layer the game already ships on this card (v0.84.0): a seeded star field that breathes, and a
-      right-and-down shooting star that arrives as a surprise (first one 4–7s in, then every 8–15s) — bright most of
-      its crossing, gone at the end.</p>
-      <p><b>The one honest fact:</b> the motion is already in the game. What the card is missing is the <i>art</i> —
-      today the unsigned card stands on the plain generated 'zodsky' plate. Ship shape is small: swap the plate for
-      this image, exactly the way the twelve zodiac cards load theirs, and the existing living layer keeps doing its
-      work on top. Nothing else moves.</p>
-      <p style="font-size:12.5px"><a href="art/sky_hero.webp" target="_blank" rel="noopener">open the full-res frame ↗</a></p>
+      <p><b>What changed for this version.</b> Sky A frame 1, as picked — with every light below the red line cut out
+      of the art itself: village lights, grass fireflies, the lit edge-strokes on the hills (they read as ground
+      lights too once the dots were gone). Each was masked by local contrast and inpainted from the surrounding hill
+      colors, never a flat fill, so the ground now recedes into a quiet dusk and the sky owns all the light. The
+      living layer doubled to match: <b>44 twinkle dots + 6 slow-spinning heroes</b> (v0.84.0 ships 22 + 3), kept to
+      the sky band above the ridge, and a shooting star roughly <b>every 3.5–7s</b> (first one inside 5s) instead of
+      8–15s — still right-and-down, still bright most of its crossing.</p>
+      <p><b>Before it touches the game:</b> this page is the preview you asked for. On your go, the build card
+      carries exactly these dials — the darkened 512×768 cut of this frame as the unsigned card's plate, and the
+      v0.84.0 layer's field/cadence numbers raised to the ones running here. Nothing ships until you say so.</p>
+      <p style="font-size:12.5px"><a href="art/sky_hero2.webp" target="_blank" rel="noopener">open the darkened frame ↗</a>
+      · <a href="art/sky_hero.webp" target="_blank" rel="noopener">the original for comparison ↗</a></p>
     </div>
   </div>
 
-  <h3>PICK THE SKY — 8 FRAMES CAME BACK (chip = your pick)</h3>
+  <h3>THE SKY PICK — RESOLVED 9/13 LATE (frame A1, live, ground dark; the 8 frames stand as the record)</h3>
   <div class="altrow" id="skyalts"></div>
 
   <h2>II · THE SIGIL ROWS</h2>
@@ -376,10 +381,12 @@
       <button class="chip" data-g="q2" data-v="drops">THE DROPS (ADDS EPIC TIER)</button>
       <button class="chip" data-g="q2" data-v="both">BOTH</button>
     </div></div>
-  <div class="q"><p class="qq"><b>Q3 · THE OPEN SKY ART.</b> Swap the unsigned card's plain plate for the picked
-    frame (art only — the v0.84.0 living layer stays exactly as shipped), or hold?</p>
+  <div class="q"><p class="qq"><b>Q3 · SEND THE OPEN SKY TO THE GAME?</b> The hero card above is your 9/13 spec —
+    ground dark below the red line, twinkle field ×2, crossings ~2× as often. On SEND, the build card carries the
+    darkened plate + those exact living-layer dials (art swap + v0.84.0 dial raise, nothing else).</p>
     <div class="opts">
-      <button class="chip" data-g="q3" data-v="swap">SWAP THE PLATE</button>
+      <button class="chip" data-g="q3" data-v="send">SEND IT — PLATE + DIALS AS PREVIEWED</button>
+      <button class="chip" data-g="q3" data-v="tune">CLOSE, TUNE IT (say what in notes)</button>
       <button class="chip" data-g="q3" data-v="hold">HOLD</button>
     </div>
     <textarea class="notes" id="noteBox" placeholder="notes — combinations, second thoughts, anything (saved on this device, goes into COPY VERDICTS)"></textarea></div>
@@ -503,13 +510,13 @@ var layer=document.getElementById('skylayer');
 var alive=!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
 var seed=13;
 function rnd(){seed=(seed*1103515245+12345)&0x7fffffff;return seed/0x7fffffff;}
-/* seeded field: 22 dots + 3 heroes, upper 80% of the card */
+/* seeded field, 9/13 spec: 44 dots + 6 heroes (double v0.84.0), sky band only */
 var i,el;
-for(i=0;i<22;i++){
+for(i=0;i<44;i++){
   el=document.createElement('span');el.className='twk';
   var sz=(1.6+rnd()*3.2).toFixed(1);
   el.style.width=sz+'px';el.style.height=sz+'px';
-  el.style.left=(3+rnd()*94).toFixed(1)+'%';el.style.top=(2+rnd()*76).toFixed(1)+'%';
+  el.style.left=(3+rnd()*94).toFixed(1)+'%';el.style.top=(2+rnd()*52).toFixed(1)+'%';
   var a=(.3+rnd()*.5);
   el.style.setProperty('--a',a.toFixed(2));
   el.style.setProperty('--d',Math.max(.08,a-.35-rnd()*.2).toFixed(2));
@@ -517,10 +524,10 @@ for(i=0;i<22;i++){
   el.style.setProperty('--de',(-rnd()*4).toFixed(2)+'s');
   layer.appendChild(el);
 }
-for(i=0;i<3;i++){
+for(i=0;i<6;i++){
   el=document.createElement('span');el.className='spk';el.textContent='✦';
   el.style.fontSize=(11+rnd()*6).toFixed(0)+'px';
-  el.style.left=(10+rnd()*76).toFixed(1)+'%';el.style.top=(6+rnd()*58).toFixed(1)+'%';
+  el.style.left=(10+rnd()*76).toFixed(1)+'%';el.style.top=(5+rnd()*44).toFixed(1)+'%';
   el.style.setProperty('--du',(46+rnd()*34).toFixed(0)+'s');
   layer.appendChild(el);
 }
@@ -545,7 +552,7 @@ function shoot(){
   s.animate([{opacity:0},{opacity:1,offset:.08},{opacity:.92,offset:.6},{opacity:0}],
             {duration:dur,easing:'cubic-bezier(0.55,0.085,0.68,0.53)',fill:'forwards'});
   t.onfinish=function(){s.remove();};
-  shootTimer=setTimeout(shoot,8000+Math.random()*7000);
+  shootTimer=setTimeout(shoot,3500+Math.random()*3500);
 }
 function setAlive(v){
   alive=v;
@@ -561,7 +568,7 @@ function setAlive(v){
   if(!v&&shootTimer){clearTimeout(shootTimer);shootTimer=null;}
   if(v&&!shootTimer){shootTimer=setTimeout(shoot,1200+Math.random()*2000);}
 }
-if(alive){shootTimer=setTimeout(shoot,3800+Math.random()*3200);}
+if(alive){shootTimer=setTimeout(shoot,2200+Math.random()*2600);}
 else{setAlive(false);}
 
 /* ---------- legendary sparks + corner twinkles (monument plaques AND rows) ---------- */
