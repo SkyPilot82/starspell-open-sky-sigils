@@ -80,7 +80,7 @@
   .panel .nm{font-size:15px;letter-spacing:.18em;line-height:1.35}
   .panel .grade{font-size:12px;letter-spacing:.3em;margin-top:3%;opacity:.9}
   .panel .ds{font-size:11.5px;line-height:1.5;margin-top:6%;opacity:.92;font-style:italic}
-  .droprow .panel .nm{font-size:10.5px;letter-spacing:.12em}
+  .droprow .panel .nm{font-size:12px}
   .droprow .panel .ds{font-size:10px}
   .droprow .panel .icon{font-size:18px}
   @media(max-width:700px){.panel .nm{font-size:12.5px}.panel .ds{font-size:10px}.panel .icon{font-size:18px}}
@@ -109,7 +109,7 @@
   @keyframes lpop{0%,72%{opacity:0;transform:scale(.4) rotate(0deg)}
     82%{opacity:1;transform:scale(1.1) rotate(24deg)}92%,100%{opacity:0;transform:scale(.5) rotate(45deg)}}
 
-  .droprow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px;margin-top:14px}
+  .droprow{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
 
   /* ------- questions ------- */
   .q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:14px 0}
@@ -117,7 +117,7 @@
   .q .opts{display:flex;gap:8px;flex-wrap:wrap}
   .q .chip{display:inline-block;width:auto;padding:6px 14px;margin:0}
   textarea.notes{width:100%;background:#0d1128;border:1px solid var(--line);border-radius:8px;color:var(--ink);
-        font:16px Georgia,serif;padding:9px 11px;min-height:54px;margin-top:10px}
+        font:13px Georgia,serif;padding:9px 11px;min-height:54px;margin-top:10px}
   .prov{color:#5b6494;font-size:12px;font-style:italic;margin-top:26px;line-height:1.6}
 
   /* ------- verdict bar ------- */
@@ -129,11 +129,8 @@
         padding:10px 22px;cursor:pointer}
   .copy:active{transform:translateY(1px)}
   .copied{color:var(--good);font-size:12.5px;letter-spacing:.08em}
-  /* reduced motion: the card boots STILL via JS (ALIVE stays a real opt-in that
-     restores twinkles + shooting stars together); only the always-on legendary
-     layers are hard-stopped here */
   @media(prefers-reduced-motion:reduce){
-    .lglow,.lspark,.lstar,.ink-legend .nm{animation:none}
+    .twk,.spk,.lglow,.lspark,.lstar,.ink-legend .nm{animation:none}
   }
 </style>
 </head>
@@ -141,7 +138,7 @@
 <div class="wrap">
   <div class="crumb">STARSPELL · DESIGN REVIEW · 2026-09-13</div>
   <h1>THE OPEN SKY &amp; THE FOUR SIGILS</h1>
-  <p class="sub">A new Midjourney scene for the unsigned campaign card — the night the other twelve cards get,
+  <p class="sub">A new Midjourney scene for the unsigned campaign card — the night the other eleven cards get,
   with no beast in it — and four sigil rectangles, one per rarity, cut from the same star-stuff.</p>
 
   <div class="quote"><span class="who">SKYLAR (SKYLAR'S CONSOLE), 2026-09-13 ~7:50 PM —</span>
@@ -160,7 +157,7 @@
     <code>sky A · 91fb5fcb-974c-4491-975e-ede0baa6c2e3 — "flat vector illustration, a vast open twilight night sky with tiny glowing stars scattered across it, layered indigo violet plum rose gradient dusk, silhouetted meadow hills and fireflies below, clean simple shapes, dreamy storybook night --no animals, creatures, constellation figures, moon, text --ar 2:3"</code>
     <code>sky B · 607708d7-ab8b-499a-8418-c5c654c5b528 — same, with "a faint band of drifting stardust"</code>
     <code>common · 5adf7eb9-bf58-448d-8b3d-a3c8737c4e76 — "an ornate rectangular game plaque frame carved from warm brown wood and bronze, plain dark empty center panel, a small star emblem at the top of the frame, on a twilight indigo background … --no text, letters, words, runes --ar 2:1"</code>
-    <code>rare · REROLL c3007204-28c7-45a8-b41a-84ba27afcb85 — "… deep sapphire cobalt blue glowing crystal, gentle icy blue glow … --no text, letters, words, runes, orange, pink, gold". The first roll (da1d3a12-5af0-44b3-bcb4-b4f0fac8c929, "glowing sapphire blue crystal") drifted off-blue toward lavender/gold under the warm sref — its four frames are kept in the alternates, flagged.</code>
+    <code>rare · da1d3a12-5af0-44b3-bcb4-b4f0fac8c929 — "… glowing sapphire blue crystal with a gentle icy glow …"</code>
     <code>epic · 99adf29a-f46f-41e7-87bc-229b51242d4b — "… glowing amethyst purple crystal with wisps of violet starlight …"</code>
     <code>legendary · f856b7bc-3c37-474c-bccb-e930d573508c — "… blazing glowing orange ember light, radiant molten gold-orange glow with drifting sparks …"</code>
   </details></div>
@@ -181,14 +178,14 @@
     </div>
     <div class="herotext">
       <p><b>What you are looking at.</b> The whole-card mock is the sign picker's unsigned slot-0 card wearing MJ
-      sky&nbsp;A&nbsp;frame&nbsp;1 — the same dusk gradient, meadow hills and fireflies the twelve signed cards got,
+      sky&nbsp;A&nbsp;frame&nbsp;1 — the same dusk gradient, meadow hills and fireflies the eleven signed cards got,
       with nothing drawn in the sky. The twinkling and the shooting stars riding over it are this page's mirror of the
       living layer the game already ships on this card (v0.84.0): a seeded star field that breathes, and a
       right-and-down shooting star that arrives as a surprise (first one 4–7s in, then every 8–15s) — bright most of
       its crossing, gone at the end.</p>
       <p><b>The one honest fact:</b> the motion is already in the game. What the card is missing is the <i>art</i> —
       today the unsigned card stands on the plain generated 'zodsky' plate. Ship shape is small: swap the plate for
-      this image, exactly the way the twelve zodiac cards load theirs, and the existing living layer keeps doing its
+      this image, exactly the way the eleven zodiac cards load theirs, and the existing living layer keeps doing its
       work on top. Nothing else moves.</p>
       <p style="font-size:12.5px"><a href="art/sky_hero.webp" target="_blank" rel="noopener">open the full-res frame ↗</a></p>
     </div>
@@ -215,11 +212,11 @@
     </div>
     <div class="plq">
       <div class="plqart"><img src="art/sig_rare.webp" alt="rare plaque — sapphire blue crystal">
-        <div class="panel ink-rare" style="left:29%;top:27%;width:42%;height:54%">
+        <div class="panel ink-rare" style="left:29.9%;top:29.6%;width:40.2%;height:52.1%">
           <div class="rar">RARE</div><div class="icon">❦</div><div class="nm">EMBER QUILL</div>
           <div class="grade">II</div><div class="ds">Every word deals +6 damage.</div>
         </div></div>
-      <div class="cap">RARE · SAPPHIRE CRYSTAL (REROLLED TRUE-BLUE — FIRST ROLL KEPT BELOW)</div>
+      <div class="cap">RARE · SAPPHIRE CRYSTAL</div>
     </div>
     <div class="plq">
       <div class="plqart"><img src="art/sig_epic.webp" alt="epic plaque — amethyst purple crystal">
@@ -252,7 +249,7 @@
     </div>
     <div class="plq">
       <div class="plqart"><img src="art/sig_rare.webp" alt="">
-        <div class="panel ink-rare" style="left:29%;top:27%;width:42%;height:54%">
+        <div class="panel ink-rare" style="left:29.9%;top:29.6%;width:40.2%;height:52.1%">
           <div class="rar">RARE</div><div class="icon">↯</div><div class="nm">STORMBINDER</div>
           <div class="ds">Every third word you cast strikes twice.</div>
         </div></div>
@@ -299,7 +296,7 @@
   <h2>IV · WHAT A BUILD WOULD COST (honest)</h2>
   <div class="note">
     <b>The open sky:</b> small. Cut the picked frame to 512×768 like the zodiac set (~40KB), load it exactly as the
-    twelve signed cards load theirs, one version bump; the living layer, the census pins and the ?twinkle=0 seam are
+    eleven signed cards load theirs, one version bump; the living layer, the census pins and the ?twinkle=0 seam are
     already shipped and untouched. <b>~half a day with suite re-proof.</b><br><br>
     <b>The rectangles:</b> real work. MJ frames are scenic paintings — a build cuts each plaque off its hills with an
     authored mask (never a color key), measures the hue thresholds, and <i>re-cuts the border as stretchable slices</i>,
@@ -357,16 +354,8 @@ html='';
 RAR.forEach(function(r){
   html+='<h3 style="margin-top:1.2em">'+r[1]+'</h3><div class="altrow">';
   for(var n=0;n<4;n++){
-    var f=(r[0]==='rare')?('sig_rareb'+n+'_t'):('sig_'+r[0]+n+'_t');
-    html+='<div class="alt"><img loading="lazy" src="art/'+f+'.webp" alt="">'
+    html+='<div class="alt"><img loading="lazy" src="art/sig_'+r[0]+n+'_t.webp" alt="">'
         +'<button class="chip" data-g="'+r[0]+'" data-v="'+(n+1)+'">FRAME '+(n+1)+'</button></div>';
-  }
-  if(r[0]==='rare'){
-    for(var m=0;m<4;m++){
-      html+='<div class="alt"><img loading="lazy" src="art/sig_rare'+m+'_t.webp" alt="">'
-          +'<div class="flag">⚠ first roll — drifted off-blue; kept for the record</div>'
-          +'<button class="chip" data-g="rare" data-v="o'+(m+1)+'">FIRST ROLL '+(m+1)+'</button></div>';
-    }
   }
   html+='</div>';
 });
@@ -460,13 +449,8 @@ function setAlive(v){
   alive=v;
   document.getElementById('tgAlive').classList.toggle('on',v);
   document.getElementById('tgStill').classList.toggle('on',!v);
+  layer.style.setProperty('--play',v?'running':'paused');
   layer.querySelectorAll('.twk,.spk').forEach(function(n){n.style.animationPlayState=v?'running':'paused';});
-  if(!v){
-    layer.querySelectorAll('.shoot').forEach(function(n){
-      if(n.getAnimations){n.getAnimations().forEach(function(a){a.cancel();});}
-      n.remove();
-    });
-  }
   if(!v&&shootTimer){clearTimeout(shootTimer);shootTimer=null;}
   if(v&&!shootTimer){shootTimer=setTimeout(shoot,1200+Math.random()*2000);}
 }
@@ -497,3 +481,15 @@ document.querySelectorAll('.plqart .lglow').forEach(function(g){
 </script>
 </body>
 </html>
+<script>
+window.addEventListener('load',()=>{setTimeout(()=>{
+  const out=[];
+  document.querySelectorAll('.droprow .plq').forEach((plq,i)=>{
+    const panel=plq.querySelector('.panel'), nm=plq.querySelector('.nm'), img=plq.querySelector('img');
+    const pr=panel.getBoundingClientRect(), nr=nm.getBoundingClientRect(), ir=img.getBoundingClientRect(), cr=plq.getBoundingClientRect();
+    out.push(`plq${i} cell=${cr.width.toFixed(1)} img=${ir.width.toFixed(1)} panelW=${pr.width.toFixed(1)} nmW=${nr.width.toFixed(1)} nmScrollW=${nm.scrollWidth} overL=${(pr.left-nr.left).toFixed(1)} overR=${(nr.right-pr.right).toFixed(1)} panelOverTop=${(pr.top-panel.parentElement.getBoundingClientRect().top).toFixed(1)} contentH=${panel.scrollHeight} panelH=${pr.height.toFixed(1)}`);
+  });
+  const d=document.createElement('div');d.id='PROBE';d.textContent='PROBE|vw='+innerWidth+'|'+out.join(' || ');
+  document.body.appendChild(d);
+},400);});
+</script>
