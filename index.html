@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0e1f'/%3E%3Cpath d='M16 5 L18.4 13.6 L27 16 L18.4 18.4 L16 27 L13.6 18.4 L5 16 L13.6 13.6 Z' fill='%23e8c76a'/%3E%3C/svg%3E">
+<title>starspell · the open sky &amp; the four sigils</title>
+<style>
+  :root{--ink:#e8e4ff;--dim:#8a94c4;--gold:#e8c76a;--bg:#0a0e1f;--card:#121732;--line:#232a52;
+        --good:#7de8a0;--warn:#ffb066;
+        --c-common:#d8b27a;--c-rare:#9fc8ff;--c-epic:#d9a8ff;--c-legend:#ffb066}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Georgia,'Times New Roman',serif;padding-bottom:110px}
+  @media(max-width:620px){body{padding-bottom:180px}}
+  .wrap{max-width:1060px;margin:0 auto;padding:28px 18px}
+  .crumb{font-size:11.5px;letter-spacing:.22em;color:var(--dim)}
+  h1{font-size:32px;color:var(--gold);letter-spacing:.06em;margin:.25em 0 .1em;text-shadow:0 0 22px rgba(232,199,106,.25)}
+  h2{color:var(--gold);letter-spacing:.05em;margin-top:2.6em;border-bottom:1px solid var(--line);padding-bottom:.35em;font-size:19px}
+  h3{color:var(--gold);letter-spacing:.05em;font-size:15.5px;margin:1.6em 0 .5em}
+  .sub{color:var(--dim);font-style:italic;margin-top:0;max-width:760px}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:14px 0;color:var(--dim);font-size:14px}
+  .note b{color:var(--ink)}
+  a{color:var(--gold)}
+  .quote{border-left:3px solid var(--gold);padding:8px 16px;margin:16px 0;color:var(--ink);font-style:italic;background:rgba(232,199,106,.05);border-radius:0 10px 10px 0;font-size:14px}
+  .quote .who{display:block;font-style:normal;color:var(--dim);font-size:12px;letter-spacing:.14em;margin-bottom:6px}
+  details{margin:10px 0;color:var(--dim);font-size:13px}
+  details summary{cursor:pointer;color:var(--gold);letter-spacing:.08em;font-size:12.5px}
+  details code{display:block;margin:8px 0;padding:8px 10px;background:#0d1128;border:1px solid var(--line);border-radius:8px;font-size:11.5px;line-height:1.5;color:#9fb0e8;word-break:break-word}
+
+  /* ------- the living card ------- */
+  .stage{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;margin-top:18px}
+  .cardwrap{flex:0 0 auto;width:min(310px,100%);margin:0 auto}
+  .livecard{position:relative;width:100%;aspect-ratio:2/3;border-radius:16px;overflow:hidden;
+            border:1.5px solid #c9a94f;box-shadow:0 0 0 1px rgba(201,169,79,.25),0 8px 30px rgba(0,0,0,.55)}
+  .livecard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .skylayer{position:absolute;inset:0;pointer-events:none}
+  .twk{position:absolute;border-radius:50%;background:#fff;
+       animation:twk var(--du) ease-in-out var(--de) infinite alternate}
+  @keyframes twk{from{opacity:var(--a)}to{opacity:var(--d)}}
+  .spk{position:absolute;color:#ffe9a8;text-shadow:0 0 8px rgba(255,233,168,.9),0 0 18px rgba(255,215,122,.5);
+       animation:spin var(--du) linear infinite;line-height:1}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .shoot{position:absolute;width:96px;height:3px;pointer-events:none}
+  .shoot .tail{position:absolute;right:0;top:0;width:100%;height:100%;border-radius:2px;
+       background:linear-gradient(90deg,transparent,rgba(255,235,180,.28) 45%,rgba(255,240,200,.75))}
+  .shoot .head{position:absolute;right:-3px;top:-2.5px;width:8px;height:8px;border-radius:50%;
+       background:radial-gradient(circle,#fff 0%,#ffe9a8 45%,transparent 72%)}
+  .cardlabel{position:absolute;left:0;right:0;bottom:9%;text-align:center;pointer-events:none}
+  .cardlabel .nm{font-size:17px;letter-spacing:.26em;color:#f4e6bd;text-shadow:0 1px 8px rgba(0,0,0,.85),0 0 18px rgba(0,0,0,.6)}
+  .cardlabel .un{font-size:10px;letter-spacing:.3em;color:#bfc6ea;text-shadow:0 1px 6px rgba(0,0,0,.9);margin-top:4px}
+  .cap{font-size:11px;letter-spacing:.16em;color:var(--dim);text-align:center;margin:9px 0 4px}
+  .toggles{display:flex;gap:8px;justify-content:center;margin-top:10px}
+  .tg{font:12px Georgia,serif;letter-spacing:.12em;color:var(--dim);background:#0d1128;border:1px solid var(--line);
+      border-radius:999px;padding:6px 16px;cursor:pointer}
+  .tg.on{color:#0a0e1f;background:var(--gold);border-color:var(--gold)}
+  .herotext{flex:1 1 340px;min-width:280px}
+  .herotext p{color:var(--dim);font-size:14px}
+  .herotext p b{color:var(--ink)}
+
+  /* ------- alternates + chips ------- */
+  .altrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
+  .alt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px}
+  .alt img{width:100%;border-radius:6px;display:block}
+  .alt .flag{font-size:10.5px;color:var(--warn);letter-spacing:.06em;margin-top:5px;line-height:1.35}
+  .chip{display:block;width:100%;margin-top:7px;font:11.5px Georgia,serif;letter-spacing:.12em;text-align:center;
+        color:var(--dim);background:#0d1128;border:1px solid var(--line);border-radius:999px;padding:5px 0;cursor:pointer}
+  .chip.on{color:#0a0e1f;background:var(--good);border-color:var(--good)}
+
+  /* ------- sigil plaques ------- */
+  .plaques{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:16px}
+  @media(max-width:640px){.plaques{grid-template-columns:1fr}}
+  .plq{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;position:relative}
+  .plqart{position:relative;border-radius:8px;overflow:hidden}
+  .plqart img{width:100%;display:block}
+  .panel{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;
+         text-align:center;pointer-events:none;padding:2%}
+  .panel .rar{font-size:10px;letter-spacing:.34em;opacity:.85}
+  .panel .icon{font-size:24px;margin:4% 0 2%;line-height:1}
+  .panel .nm{font-size:15px;letter-spacing:.18em;line-height:1.35}
+  .panel .grade{font-size:12px;letter-spacing:.3em;margin-top:3%;opacity:.9}
+  .panel .ds{font-size:11.5px;line-height:1.5;margin-top:6%;opacity:.92;font-style:italic}
+  .droprow .panel .nm{font-size:12px}
+  .droprow .panel .ds{font-size:10px}
+  .droprow .panel .icon{font-size:18px}
+  @media(max-width:700px){.panel .nm{font-size:12.5px}.panel .ds{font-size:10px}.panel .icon{font-size:18px}}
+  .plq .cap{margin-top:8px}
+  .ink-common{color:#efdcb4}.ink-common .rar{color:var(--c-common)}
+  .ink-rare{color:#d9e7ff}.ink-rare .rar{color:var(--c-rare)}
+  .ink-epic{color:#eed9ff}.ink-epic .rar{color:var(--c-epic)}
+  .ink-legend{color:#ffedc0}.ink-legend .rar{color:var(--c-legend)}
+  .ink-legend .nm{background:linear-gradient(180deg,#fff3d0,#ffd98d 40%,#ffa94d 75%,#e07f20),
+        linear-gradient(110deg,transparent 42%,rgba(255,255,255,.8) 50%,transparent 58%);
+        background-size:100% 100%,260% 100%;background-position:0 0,130% 0;
+        -webkit-background-clip:text;background-clip:text;color:transparent;animation:swp 6s ease-in-out infinite}
+  @keyframes swp{0%,55%{background-position:0 0,130% 0}75%,100%{background-position:0 0,-130% 0}}
+  .lglow{position:absolute;inset:-6%;border-radius:12px;pointer-events:none;
+         background:radial-gradient(ellipse 50% 58% at 50% 54%,rgba(255,150,50,.34),transparent 68%);
+         animation:lbreathe 3.6s ease-in-out infinite alternate;mix-blend-mode:screen}
+  @keyframes lbreathe{from{opacity:.5}to{opacity:1}}
+  .lspark{position:absolute;width:4px;height:4px;border-radius:50%;pointer-events:none;
+          background:radial-gradient(circle,#fff6d8 0%,#ffb066 55%,transparent 75%);
+          opacity:0;animation:lrise var(--du) ease-out var(--de) infinite}
+  @keyframes lrise{0%{transform:translate(0,0) scale(.6);opacity:0}
+    12%{opacity:.95}60%{opacity:.6}
+    100%{transform:translate(var(--dx),var(--dy)) scale(1.05);opacity:0}}
+  .lstar{position:absolute;color:#ffdf8f;font-size:11px;line-height:1;pointer-events:none;opacity:0;
+         text-shadow:0 0 8px rgba(255,176,102,.95);animation:lpop var(--du) ease-in-out var(--de) infinite}
+  @keyframes lpop{0%,72%{opacity:0;transform:scale(.4) rotate(0deg)}
+    82%{opacity:1;transform:scale(1.1) rotate(24deg)}92%,100%{opacity:0;transform:scale(.5) rotate(45deg)}}
+
+  .droprow{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
+
+  /* ------- questions ------- */
+  .q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:14px 0}
+  .q .qq{color:var(--ink);font-size:14.5px;margin:0 0 10px}
+  .q .opts{display:flex;gap:8px;flex-wrap:wrap}
+  .q .chip{display:inline-block;width:auto;padding:6px 14px;margin:0}
+  textarea.notes{width:100%;background:#0d1128;border:1px solid var(--line);border-radius:8px;color:var(--ink);
+        font:13px Georgia,serif;padding:9px 11px;min-height:54px;margin-top:10px}
+  .prov{color:#5b6494;font-size:12px;font-style:italic;margin-top:26px;line-height:1.6}
+
+  /* ------- verdict bar ------- */
+  .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(10,13,28,.96);border-top:1px solid var(--line);
+       backdrop-filter:blur(6px);z-index:50}
+  .barin{max-width:1060px;margin:0 auto;padding:12px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .barnote{color:var(--dim);font-size:12px;flex:1 1 260px}
+  .copy{font:14px Georgia,serif;letter-spacing:.1em;background:var(--gold);color:#0a0e1f;border:0;border-radius:999px;
+        padding:10px 22px;cursor:pointer}
+  .copy:active{transform:translateY(1px)}
+  .copied{color:var(--good);font-size:12.5px;letter-spacing:.08em}
+  @media(prefers-reduced-motion:reduce){
+    .twk,.spk,.lglow,.lspark,.lstar,.ink-legend .nm{animation:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumb">STARSPELL · DESIGN REVIEW · 2026-09-13</div>
+  <h1>THE OPEN SKY &amp; THE FOUR SIGILS</h1>
+  <p class="sub">A new Midjourney scene for the unsigned campaign card — the night the other eleven cards get,
+  with no beast in it — and four sigil rectangles, one per rarity, cut from the same star-stuff.</p>
+
+  <div class="quote"><span class="who">SKYLAR (SKYLAR'S CONSOLE), 2026-09-13 ~7:50 PM —</span>
+  "use MJ to create a new scene for 'the open sky' in campaign … the nice background that you made for the other
+  signs without the signs in the sky … unique looking sigil rectangles, that the text will look good in. We need one
+  for common, rare, epic and legendary. The colors … brown&nbsp;(common), blue&nbsp;(rare), purple&nbsp;(epic),
+  legendary&nbsp;(glowing orange). Use our previous starspell MJ requirements, so it matches the art we've already
+  made … add some animation and sparkle for the legendary sigils. Once you have the 'the open sky' MJ image, you
+  should add some shooting stars to it and some twinkling stars to it."</div>
+
+  <div class="note"><b>Nothing here is built.</b> Every image below came out of Midjourney tonight, sref'd to the
+  locked Aries anchor (the same B2 frame every shipped zodiac card descends from), on the frozen zodiac formula with
+  only the subject swapped. Pick frames, answer the three questions, COPY VERDICTS at the bottom and paste back.
+  <details><summary>THE SIX MJ JOBS (for the record — reroll = same formula, new subject words)</summary>
+    <code>anchor/sref (all six): cdn.midjourney.com/7ad41d09-9759-4ade-a9d1-fcf641eb8983/0_1.webp · --s 100 --style raw --v 6.1</code>
+    <code>sky A · 91fb5fcb-974c-4491-975e-ede0baa6c2e3 — "flat vector illustration, a vast open twilight night sky with tiny glowing stars scattered across it, layered indigo violet plum rose gradient dusk, silhouetted meadow hills and fireflies below, clean simple shapes, dreamy storybook night --no animals, creatures, constellation figures, moon, text --ar 2:3"</code>
+    <code>sky B · 607708d7-ab8b-499a-8418-c5c654c5b528 — same, with "a faint band of drifting stardust"</code>
+    <code>common · 5adf7eb9-bf58-448d-8b3d-a3c8737c4e76 — "an ornate rectangular game plaque frame carved from warm brown wood and bronze, plain dark empty center panel, a small star emblem at the top of the frame, on a twilight indigo background … --no text, letters, words, runes --ar 2:1"</code>
+    <code>rare · da1d3a12-5af0-44b3-bcb4-b4f0fac8c929 — "… glowing sapphire blue crystal with a gentle icy glow …"</code>
+    <code>epic · 99adf29a-f46f-41e7-87bc-229b51242d4b — "… glowing amethyst purple crystal with wisps of violet starlight …"</code>
+    <code>legendary · f856b7bc-3c37-474c-bccb-e930d573508c — "… blazing glowing orange ember light, radiant molten gold-orange glow with drifting sparks …"</code>
+  </details></div>
+
+  <h2>I · THE OPEN SKY, ALIVE</h2>
+  <div class="stage">
+    <div class="cardwrap">
+      <div class="livecard" id="livecard">
+        <img src="art/sky_hero.webp" alt="the open sky — MJ frame A1 of 4">
+        <div class="skylayer" id="skylayer"></div>
+        <div class="cardlabel"><div class="nm">THE OPEN SKY</div><div class="un">EVERY STAR AT ONCE</div></div>
+      </div>
+      <div class="cap">THE UNSIGNED CARD, WEARING THE NEW ART — TWINKLE + SHOOTING STARS LIVE</div>
+      <div class="toggles">
+        <button class="tg on" id="tgAlive" onclick="setAlive(true)">ALIVE</button>
+        <button class="tg" id="tgStill" onclick="setAlive(false)">STILL</button>
+      </div>
+    </div>
+    <div class="herotext">
+      <p><b>What you are looking at.</b> The whole-card mock is the sign picker's unsigned slot-0 card wearing MJ
+      sky&nbsp;A&nbsp;frame&nbsp;1 — the same dusk gradient, meadow hills and fireflies the eleven signed cards got,
+      with nothing drawn in the sky. The twinkling and the shooting stars riding over it are this page's mirror of the
+      living layer the game already ships on this card (v0.84.0): a seeded star field that breathes, and a
+      right-and-down shooting star that arrives as a surprise (first one 4–7s in, then every 8–15s) — bright most of
+      its crossing, gone at the end.</p>
+      <p><b>The one honest fact:</b> the motion is already in the game. What the card is missing is the <i>art</i> —
+      today the unsigned card stands on the plain generated 'zodsky' plate. Ship shape is small: swap the plate for
+      this image, exactly the way the eleven zodiac cards load theirs, and the existing living layer keeps doing its
+      work on top. Nothing else moves.</p>
+      <p style="font-size:12.5px"><a href="art/sky_hero.webp" target="_blank" rel="noopener">open the full-res frame ↗</a></p>
+    </div>
+  </div>
+
+  <h3>PICK THE SKY — 8 FRAMES CAME BACK (chip = your pick)</h3>
+  <div class="altrow" id="skyalts"></div>
+
+  <h2>II · THE FOUR SIGIL RECTANGLES</h2>
+  <p class="sub">One rectangle per rarity, all four sref'd to the same anchor so they sit in one world: carved
+  <b style="color:var(--c-common)">brown</b> for common, sapphire <b style="color:var(--c-rare)">blue</b> for rare,
+  amethyst <b style="color:var(--c-epic)">purple</b> for epic, and a <b style="color:var(--c-legend)">glowing
+  orange</b> legendary that breathes, sparks and shimmers. The text inside is real game text — EMBER QUILL climbing
+  its own four-step ladder, I&nbsp;→&nbsp;IV, the one sigil in the book whose ladder touches every grade.</p>
+
+  <div class="plaques">
+    <div class="plq">
+      <div class="plqart"><img src="art/sig_common.webp" alt="common plaque — carved brown wood and bronze">
+        <div class="panel ink-common" style="left:27%;top:23.4%;width:46%;height:61.8%">
+          <div class="rar">COMMON</div><div class="icon">❦</div><div class="nm">EMBER QUILL</div>
+          <div class="grade">I</div><div class="ds">Every word deals +4 damage.</div>
+        </div></div>
+      <div class="cap">COMMON · CARVED WOOD &amp; BRONZE</div>
+    </div>
+    <div class="plq">
+      <div class="plqart"><img src="art/sig_rare.webp" alt="rare plaque — sapphire blue crystal">
+        <div class="panel ink-rare" style="left:29.9%;top:29.6%;width:40.2%;height:52.1%">
+          <div class="rar">RARE</div><div class="icon">❦</div><div class="nm">EMBER QUILL</div>
+          <div class="grade">II</div><div class="ds">Every word deals +6 damage.</div>
+        </div></div>
+      <div class="cap">RARE · SAPPHIRE CRYSTAL</div>
+    </div>
+    <div class="plq">
+      <div class="plqart"><img src="art/sig_epic.webp" alt="epic plaque — amethyst purple crystal">
+        <div class="panel ink-epic" style="left:28.5%;top:26.5%;width:43.1%;height:60%">
+          <div class="rar">EPIC</div><div class="icon">❦</div><div class="nm">EMBER QUILL</div>
+          <div class="grade">III</div><div class="ds">Every word deals +8 damage.</div>
+        </div></div>
+      <div class="cap">EPIC · AMETHYST STARLIGHT</div>
+    </div>
+    <div class="plq" id="legplq">
+      <div class="plqart"><div class="lglow"></div><img src="art/sig_legendary.webp" alt="legendary plaque — blazing glowing orange ember">
+        <div class="panel ink-legend" style="left:29%;top:28.1%;width:42%;height:53.6%">
+          <div class="rar">LEGENDARY</div><div class="icon">❦</div><div class="nm">EMBER QUILL</div>
+          <div class="grade">IV</div><div class="ds">Every word deals +11 damage.</div>
+        </div></div>
+      <div class="cap">LEGENDARY · MOLTEN EMBER — BREATHES, SPARKS &amp; SHIMMERS</div>
+    </div>
+  </div>
+
+  <h3>THE SAME RECTANGLES DRESSING DROPS</h3>
+  <p class="sub" style="font-size:13px">The rarity words also name what falls in a hunt — so here is each rectangle
+  holding a different sigil, the way a drop card or the forge would wear it.</p>
+  <div class="droprow">
+    <div class="plq">
+      <div class="plqart"><img src="art/sig_common.webp" alt="">
+        <div class="panel ink-common" style="left:27%;top:23.4%;width:46%;height:61.8%">
+          <div class="rar">COMMON</div><div class="icon">☾</div><div class="nm">MOON SALVE</div>
+          <div class="ds">Words of 5+ letters heal you 4.</div>
+        </div></div>
+    </div>
+    <div class="plq">
+      <div class="plqart"><img src="art/sig_rare.webp" alt="">
+        <div class="panel ink-rare" style="left:29.9%;top:29.6%;width:40.2%;height:52.1%">
+          <div class="rar">RARE</div><div class="icon">↯</div><div class="nm">STORMBINDER</div>
+          <div class="ds">Every third word you cast strikes twice.</div>
+        </div></div>
+    </div>
+    <div class="plq">
+      <div class="plqart"><div class="lglow"></div><img src="art/sig_legendary.webp" alt="">
+        <div class="panel ink-legend" style="left:29%;top:28.1%;width:42%;height:53.6%">
+          <div class="rar">LEGENDARY</div><div class="icon">❋</div><div class="nm">PHOENIX FEATHER</div>
+          <div class="ds">Once per run, survive death at 1 health.</div>
+        </div></div>
+    </div>
+  </div>
+
+  <h3>PICK EACH RECTANGLE — 4 FRAMES PER RARITY (chip = your pick)</h3>
+  <div id="sigalts"></div>
+
+  <h2>III · THREE QUESTIONS</h2>
+  <div class="q"><p class="qq"><b>Q1 · THE LEGENDARY COLOR.</b> You called legendary <i>glowing orange</i>, and the
+    plaque above wears it. In the game today, legendary dress is <b>gold</b> everywhere — the drop card's gold rays,
+    the grade-IV ink, the award fanfare. Does orange become the legendary color of the whole game, or does gold keep
+    the game and orange live only on these rectangles?</p>
+    <div class="opts">
+      <button class="chip" data-g="q1" data-v="orange-everywhere">ORANGE EVERYWHERE</button>
+      <button class="chip" data-g="q1" data-v="gold-keeps-game">GOLD KEEPS THE GAME, ORANGE ON PLAQUES</button>
+      <button class="chip" data-g="q1" data-v="look-longer">LET ME LOOK LONGER</button>
+    </div></div>
+  <div class="q"><p class="qq"><b>Q2 · WHAT DO THE RECTANGLES DRESS?</b> Common→rare→epic→legendary is the ladder a
+    held sigil climbs (I·II·III·IV — EPIC lives only there today; drops fall as basic / rare / legendary). Are these
+    four rectangles the dress of the <b>grades</b>, of the <b>drops</b> (which would add an epic drop tier), or
+    <b>both</b>?</p>
+    <div class="opts">
+      <button class="chip" data-g="q2" data-v="grades">THE GRADES I–IV</button>
+      <button class="chip" data-g="q2" data-v="drops">THE DROPS (ADDS EPIC TIER)</button>
+      <button class="chip" data-g="q2" data-v="both">BOTH</button>
+    </div></div>
+  <div class="q"><p class="qq"><b>Q3 · THE OPEN SKY ART.</b> Swap the unsigned card's plain plate for the picked
+    frame (art only — the v0.84.0 living layer stays exactly as shipped), or hold?</p>
+    <div class="opts">
+      <button class="chip" data-g="q3" data-v="swap">SWAP THE PLATE</button>
+      <button class="chip" data-g="q3" data-v="hold">HOLD</button>
+    </div>
+    <textarea class="notes" id="noteBox" placeholder="notes — combinations, second thoughts, anything (saved on this device, goes into COPY VERDICTS)"></textarea></div>
+
+  <h2>IV · WHAT A BUILD WOULD COST (honest)</h2>
+  <div class="note">
+    <b>The open sky:</b> small. Cut the picked frame to 512×768 like the zodiac set (~40KB), load it exactly as the
+    eleven signed cards load theirs, one version bump; the living layer, the census pins and the ?twinkle=0 seam are
+    already shipped and untouched. <b>~half a day with suite re-proof.</b><br><br>
+    <b>The rectangles:</b> real work. MJ frames are scenic paintings — a build cuts each plaque off its hills with an
+    authored mask (never a color key), measures the hue thresholds, and <i>re-cuts the border as stretchable slices</i>,
+    because a fixed-proportion picture can't hold two-line and five-line sigil text alike; the legendary's glow,
+    sparks and shimmer get re-added in-engine, since baked light on a scaled sprite peels like a sticker. One family,
+    many surfaces (drop cards, forge, sign pages, the versus inspector) — sized per surface at build time.
+    <b>~2–2.5 days for the family.</b><br><br>
+    <b>Orange-everywhere</b> (if Q1 says so): recolor of the legendary dress + fanfare + suites re-pinned, <b>~half a
+    day</b> on top.
+  </div>
+
+  <p class="note" style="margin-top:22px"><b>Nothing here is built.</b> This page is a look, not a queue item — per
+  the standing law, a build fires only on "done and agreed", as its own card. Chips and notes save on this device;
+  COPY VERDICTS below builds the paste-back block.</p>
+
+  <div class="prov">Spacely (Skylar's console) · 2026-09-13 · built on Skylar's words quoted verbatim at the head of
+  this page · art: six MJ jobs fired tonight, sref'd to the locked Aries B2 anchor on the frozen zodiac formula ·
+  sigil text verbatim from the game's own book (data.js) · the card mock's motion mirrors the shipped v0.84.0 living
+  layer (seeded field, right-and-down crossings, bright-most-of-the-way fade).</div>
+</div>
+
+<div class="bar"><div class="barin">
+  <span class="barnote" id="barnote">chips + notes save on this device; COPY VERDICTS builds the paste-back block</span>
+  <span class="copied" id="copied" hidden>copied — paste it back to the console</span>
+  <button class="copy" onclick="copyVerdicts()">COPY VERDICTS</button>
+</div></div>
+
+<script>
+/* ---------- state ---------- */
+var KEY='ss_open_sky_sigils_2026_09_13';
+var state={};
+try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+
+/* ---------- alternates ---------- */
+var SKY=[
+ {id:'a1',f:'sky_a0_t',cap:'SKY A · FRAME 1 — the clean field (the mock above)',flag:''},
+ {id:'a2',f:'sky_a1_t',cap:'SKY A · FRAME 2 — dense field, high horizon band',flag:''},
+ {id:'a3',f:'sky_a2_t',cap:'SKY A · FRAME 3 — born with two crossings of its own',flag:''},
+ {id:'a4',f:'sky_a3_t',cap:'SKY A · FRAME 4 — bright valley',flag:'carries faint chart-lines — fights the real asterisms'},
+ {id:'b1',f:'sky_b0_t',cap:'SKY B · FRAME 1',flag:'carries chart-lines — fights the real asterisms'},
+ {id:'b2',f:'sky_b1_t',cap:'SKY B · FRAME 2 — the dense magical one, tall grass',flag:''},
+ {id:'b3',f:'sky_b2_t',cap:'SKY B · FRAME 3',flag:'carries chart-lines — fights the real asterisms'},
+ {id:'b4',f:'sky_b3_t',cap:'SKY B · FRAME 4 — dense field, red ember low right',flag:''}];
+var html='';
+SKY.forEach(function(s){
+  html+='<div class="alt"><img loading="lazy" src="art/'+s.f+'.webp" alt="">'
+      +(s.flag?'<div class="flag">⚠ '+s.flag+'</div>':'')
+      +'<button class="chip" data-g="sky" data-v="'+s.id+'">'+s.cap.split(' — ')[0]+'</button></div>';
+});
+document.getElementById('skyalts').innerHTML=html;
+
+var RAR=[['common','COMMON'],['rare','RARE'],['epic','EPIC'],['legendary','LEGENDARY']];
+html='';
+RAR.forEach(function(r){
+  html+='<h3 style="margin-top:1.2em">'+r[1]+'</h3><div class="altrow">';
+  for(var n=0;n<4;n++){
+    html+='<div class="alt"><img loading="lazy" src="art/sig_'+r[0]+n+'_t.webp" alt="">'
+        +'<button class="chip" data-g="'+r[0]+'" data-v="'+(n+1)+'">FRAME '+(n+1)+'</button></div>';
+  }
+  html+='</div>';
+});
+document.getElementById('sigalts').innerHTML=html;
+
+/* ---------- chips (single-select per group) ---------- */
+function paint(){
+  document.querySelectorAll('.chip').forEach(function(c){
+    c.classList.toggle('on', state[c.dataset.g]===c.dataset.v);
+  });
+}
+document.addEventListener('click',function(e){
+  var c=e.target.closest('.chip'); if(!c) return;
+  var g=c.dataset.g,v=c.dataset.v;
+  state[g]=(state[g]===v?null:v); save(); paint();
+});
+/* defaults: the mock's picks, first visit only */
+if(!('sky' in state)){state.sky='a1';state.common='3';state.rare='3';state.epic='3';state.legendary='3';save();}
+paint();
+var nb=document.getElementById('noteBox');
+nb.value=state.note||'';
+nb.addEventListener('input',function(){state.note=nb.value;save();});
+
+/* ---------- copy verdicts ---------- */
+function copyVerdicts(){
+  var L=[];
+  L.push('STARSPELL · the open sky & the four sigils · verdicts · page of 2026-09-13');
+  L.push('sky pick: '+(state.sky||'(none)'));
+  RAR.forEach(function(r){L.push(r[0]+' rectangle: frame '+(state[r[0]]||'(none)'));});
+  L.push('Q1 legendary color: '+(state.q1||'(open)'));
+  L.push('Q2 rectangles dress: '+(state.q2||'(open)'));
+  L.push('Q3 open sky art: '+(state.q3||'(open)'));
+  if(state.note) L.push('notes: '+state.note);
+  var txt=L.join('\n');
+  function done(){var c=document.getElementById('copied');c.hidden=false;setTimeout(function(){c.hidden=true;},2600);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){fallback(txt);done();});}
+  else{fallback(txt);done();}
+  function fallback(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+}
+
+/* ---------- the living sky (mirror of the shipped v0.84.0 layer) ---------- */
+var layer=document.getElementById('skylayer');
+var alive=!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+var seed=13;
+function rnd(){seed=(seed*1103515245+12345)&0x7fffffff;return seed/0x7fffffff;}
+/* seeded field: 22 dots + 3 heroes, upper 80% of the card */
+var i,el;
+for(i=0;i<22;i++){
+  el=document.createElement('span');el.className='twk';
+  var sz=(1.6+rnd()*3.2).toFixed(1);
+  el.style.width=sz+'px';el.style.height=sz+'px';
+  el.style.left=(3+rnd()*94).toFixed(1)+'%';el.style.top=(2+rnd()*76).toFixed(1)+'%';
+  var a=(.3+rnd()*.5);
+  el.style.setProperty('--a',a.toFixed(2));
+  el.style.setProperty('--d',Math.max(.08,a-.35-rnd()*.2).toFixed(2));
+  el.style.setProperty('--du',(1.8+rnd()*2.6).toFixed(2)+'s');
+  el.style.setProperty('--de',(-rnd()*4).toFixed(2)+'s');
+  layer.appendChild(el);
+}
+for(i=0;i<3;i++){
+  el=document.createElement('span');el.className='spk';el.textContent='✦';
+  el.style.fontSize=(11+rnd()*6).toFixed(0)+'px';
+  el.style.left=(10+rnd()*76).toFixed(1)+'%';el.style.top=(6+rnd()*58).toFixed(1)+'%';
+  el.style.setProperty('--du',(46+rnd()*34).toFixed(0)+'s');
+  layer.appendChild(el);
+}
+/* shooting star: right-and-down, travel cubic-out, bright most of the crossing (alpha quad-in) */
+var shootTimer=null;
+function shoot(){
+  if(!alive) return;
+  var card=document.getElementById('livecard');
+  var W=card.clientWidth,H=card.clientHeight;
+  var x0=W*(0.02+Math.random()*0.45),y0=H*(0.04+Math.random()*0.4);
+  var ang=(26+Math.random()*16)*Math.PI/180;
+  var dist=W*(0.55+Math.random()*0.35);
+  var dx=Math.cos(ang)*dist,dy=Math.sin(ang)*dist;
+  var s=document.createElement('div');s.className='shoot';
+  s.style.transform='translate('+x0+'px,'+y0+'px) rotate('+(ang*180/Math.PI)+'deg)';
+  s.innerHTML='<div class="tail"></div><div class="head"></div>';
+  layer.appendChild(s);
+  var dur=900+Math.random()*420;
+  var t=s.animate([{transform:'translate('+x0+'px,'+y0+'px) rotate('+(ang*180/Math.PI)+'deg)'},
+                   {transform:'translate('+(x0+dx)+'px,'+(y0+dy)+'px) rotate('+(ang*180/Math.PI)+'deg)'}],
+                  {duration:dur,easing:'cubic-bezier(0.215,0.61,0.355,1)',fill:'forwards'});
+  s.animate([{opacity:0},{opacity:1,offset:.08},{opacity:.92,offset:.6},{opacity:0}],
+            {duration:dur,easing:'cubic-bezier(0.55,0.085,0.68,0.53)',fill:'forwards'});
+  t.onfinish=function(){s.remove();};
+  shootTimer=setTimeout(shoot,8000+Math.random()*7000);
+}
+function setAlive(v){
+  alive=v;
+  document.getElementById('tgAlive').classList.toggle('on',v);
+  document.getElementById('tgStill').classList.toggle('on',!v);
+  layer.style.setProperty('--play',v?'running':'paused');
+  layer.querySelectorAll('.twk,.spk').forEach(function(n){n.style.animationPlayState=v?'running':'paused';});
+  if(!v&&shootTimer){clearTimeout(shootTimer);shootTimer=null;}
+  if(v&&!shootTimer){shootTimer=setTimeout(shoot,1200+Math.random()*2000);}
+}
+if(alive){shootTimer=setTimeout(shoot,3800+Math.random()*3200);}
+else{setAlive(false);}
+
+/* ---------- legendary sparks + corner twinkles (both legendary plaques) ---------- */
+document.querySelectorAll('.plqart .lglow').forEach(function(g){
+  var host=g.parentElement;
+  for(var k=0;k<9;k++){
+    var sp=document.createElement('span');sp.className='lspark';
+    sp.style.left=(37+Math.random()*26)+'%';
+    sp.style.top=(46+Math.random()*38)+'%';
+    sp.style.setProperty('--dx',((Math.random()*36)-18).toFixed(0)+'px');
+    sp.style.setProperty('--dy',(-(22+Math.random()*34)).toFixed(0)+'px');
+    sp.style.setProperty('--du',(2.6+Math.random()*2.4).toFixed(2)+'s');
+    sp.style.setProperty('--de',(Math.random()*3.4).toFixed(2)+'s');
+    host.appendChild(sp);
+  }
+  [[31,23],[67,25],[30,83],[68,81]].forEach(function(p){
+    var st=document.createElement('span');st.className='lstar';st.textContent='✦';
+    st.style.left=p[0]+'%';st.style.top=p[1]+'%';
+    st.style.setProperty('--du',(3+Math.random()*2.5).toFixed(2)+'s');
+    st.style.setProperty('--de',(Math.random()*4).toFixed(2)+'s');
+    host.appendChild(st);
+  });
+});
+</script>
+</body>
+</html>
