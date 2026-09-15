@@ -209,7 +209,9 @@
     --ar 7:3): row common 92bcfc6c-94fa-4bfe-a634-aa381d0194b3 · row rare GLASS ROLL d955ebf2-8743-4595-8726-5a6df9283b34
     (came back as transparent windows — no dark panel; kept in the alternates, flagged) · row rare DARK REROLL
     d05d7bad-05a3-49e9-9f94-5531eee8b409 ("… solid very dark navy empty panel … --no transparent glass window") ·
-    row epic 7d0a1b38-a31d-476e-b31e-015ffefe9dfa · row legendary 6ca61e73-5c87-4267-b287-4858c17799d5.</code>
+    row epic 7d0a1b38-a31d-476e-b31e-015ffefe9dfa · row legendary 6ca61e73-5c87-4267-b287-4858c17799d5.
+    9/15: the displayed rows are FRAME-ONLY CUTS of the picked frames (cut_*.webp; scenery trimmed to the frame +
+    glow per Skylar's crop) — a build's alpha-mask cut starts from these bounds.</code>
   </details></div>
 
   <h2>I · THE OPEN SKY, ALIVE — THE 9/13 SPEC</h2>
@@ -226,9 +228,10 @@
       <div class="livecard" id="livecard">
         <img src="art/sky_hero3.webp" alt="the open sky — born-unlit frame, dark crisp ground, no lights">
         <div class="skylayer" id="skylayer"></div>
-        <div class="cardlabel"><div class="nm">THE OPEN SKY</div><div class="un">EVERY STAR AT ONCE</div></div>
+        <div class="cardlabel"><div class="nm">THE OPEN SKY</div></div>
       </div>
-      <div class="cap">GROUND DARK &amp; CRISP · DEEPER TWINKLE · CROSSINGS NEVER TOUCH THE GROUND</div>
+      <div class="cap">SENT TO THE BUILD 9/15 — NO SUBTITLE (the "every star at once" line was this page's own
+      decoration; the game card carries label + gold bar only, and the build adds nothing)</div>
       <div class="toggles">
         <button class="tg on" id="tgAlive" onclick="setAlive(true)">ALIVE</button>
         <button class="tg" id="tgStill" onclick="setAlive(false)">STILL</button>
@@ -265,25 +268,27 @@
   at that shape (same anchor, same formula, ~7:3). Carved <b style="color:var(--c-common)">brown</b> for common,
   sapphire <b style="color:var(--c-rare)">blue</b> for rare, amethyst <b style="color:var(--c-epic)">purple</b> for
   epic, a <b style="color:var(--c-legend)">glowing orange</b> legendary that breathes, sparks and shimmers. The first
-  night's portrait plaques didn't fit this surface — they moved to §III.</p>
+  night's portrait plaques didn't fit this surface — they moved to §III. <b>9/15:</b> per Skylar, the rows now show
+  the <b>frame-only cut</b> — "just the center part, not everything surrounding it" — the painted scenery trimmed to
+  the frame and its glow; the full scenic frames stand in the alternates as the record.</p>
 
   <div class="stage">
     <div style="flex:0 0 auto;width:min(350px,100%);margin:0 auto">
       <div class="phone">
         <div class="act">ACT I · THE MEADOW SKY</div>
         <div class="choose">— CHOOSE A SIGIL —</div>
-        <div class="sigrow"><img src="art/row_common.webp" alt="common row — carved wood and bronze">
-          <div class="rowpanel ink-common" style="left:23%;top:38%;width:55%;height:39%">
+        <div class="sigrow" style="aspect-ratio:1445/569"><img src="art/cut_common.webp" alt="common row — carved wood and bronze, frame only">
+          <div class="rowpanel ink-common" style="left:18.6%;top:27.8%;width:64%;height:49.4%">
             <div class="roundel"><span>❦</span></div>
             <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="ds">Every word deals +4 damage.</div></div>
           </div></div>
-        <div class="sigrow"><img src="art/row_rare.webp" alt="rare row — sapphire crystal">
-          <div class="rowpanel ink-rare" style="left:18%;top:37%;width:64%;height:42%">
+        <div class="sigrow" style="aspect-ratio:1311/634"><img src="art/cut_rare.webp" alt="rare row — sapphire crystal, frame only">
+          <div class="rowpanel ink-rare" style="left:9%;top:33%;width:82%;height:47.7%">
             <div class="roundel"><span>↯</span></div>
             <div class="rowtx"><div class="nm">STORMBINDER</div><div class="ds">Every third word you cast strikes twice.</div></div>
           </div></div>
-        <div class="sigrow"><div class="lglow"></div><img src="art/row_legendary.webp" alt="legendary row — molten ember">
-          <div class="rowpanel ink-legend" style="left:20%;top:33%;width:62%;height:39%">
+        <div class="sigrow" style="aspect-ratio:1445/612"><div class="lglow"></div><img src="art/cut_legendary.webp" alt="legendary row — molten ember, frame only">
+          <div class="rowpanel ink-legend" style="left:15.1%;top:28.2%;width:72.1%;height:45.9%">
             <div class="roundel"><span>❋</span></div>
             <div class="rowtx"><div class="nm">PHOENIX FEATHER</div><div class="ds">Once per run, survive death at 1 health.</div></div>
           </div></div>
@@ -305,27 +310,27 @@
   <p class="sub" style="font-size:13px">Real game text; the one sigil in the book whose ladder touches every grade.
   The legendary row breathes, sparks and shimmers — build note: that motion is re-added in-engine, never baked.</p>
   <div class="bigrows">
-    <div class="sigrow"><img src="art/row_common.webp" alt="">
-      <div class="rowpanel ink-common" style="left:23%;top:38%;width:55%;height:39%">
+    <div class="sigrow" style="aspect-ratio:1445/569"><img src="art/cut_common.webp" alt="">
+      <div class="rowpanel ink-common" style="left:18.6%;top:27.8%;width:64%;height:49.4%">
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">COMMON · I</div><div class="ds">Every word deals +4 damage.</div></div>
       </div></div>
-    <div class="sigrow"><img src="art/row_rare.webp" alt="">
-      <div class="rowpanel ink-rare" style="left:18%;top:37%;width:64%;height:42%">
+    <div class="sigrow" style="aspect-ratio:1311/634"><img src="art/cut_rare.webp" alt="">
+      <div class="rowpanel ink-rare" style="left:9%;top:33%;width:82%;height:47.7%">
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">RARE · II</div><div class="ds">Every word deals +6 damage.</div></div>
       </div></div>
-    <div class="sigrow"><img src="art/row_epic.webp" alt="">
-      <div class="rowpanel ink-epic" style="left:24%;top:36%;width:50%;height:41%">
+    <div class="sigrow" style="aspect-ratio:1344/633"><img src="art/cut_epic.webp" alt="">
+      <div class="rowpanel ink-epic" style="left:17.5%;top:34.1%;width:62.5%;height:46.6%">
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">EPIC · III</div><div class="ds">Every word deals +8 damage.</div></div>
       </div></div>
-    <div class="sigrow"><div class="lglow"></div><img src="art/row_legendary.webp" alt="">
-      <div class="rowpanel ink-legend" style="left:20%;top:33%;width:62%;height:39%">
+    <div class="sigrow" style="aspect-ratio:1445/612"><div class="lglow"></div><img src="art/cut_legendary.webp" alt="">
+      <div class="rowpanel ink-legend" style="left:15.1%;top:28.2%;width:72.1%;height:45.9%">
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">LEGENDARY · IV</div><div class="ds">Every word deals +11 damage.</div></div>
       </div></div>
-    <div class="cap">THE SAME ROWS AT READING SIZE — PICK FRAMES BELOW</div>
+    <div class="cap">THE FRAME-ONLY CUTS AT READING SIZE (Skylar 9/15: "just the center part") — PICK FRAMES BELOW</div>
   </div>
 
   <h3>PICK EACH ROW — 4 FRAMES PER RARITY (chip = your pick)</h3>
@@ -395,14 +400,10 @@
       <button class="chip" data-g="q2" data-v="drops">THE DROPS (ADDS EPIC TIER)</button>
       <button class="chip" data-g="q2" data-v="both">BOTH</button>
     </div></div>
-  <div class="q"><p class="qq"><b>Q3 · SEND THE OPEN SKY TO THE GAME?</b> The hero card above is your 9/13 spec —
-    ground dark below the red line, twinkle field ×2, crossings ~2× as often. On SEND, the build card carries the
-    darkened plate + those exact living-layer dials (art swap + v0.84.0 dial raise, nothing else).</p>
-    <div class="opts">
-      <button class="chip" data-g="q3" data-v="send">SEND IT — PLATE + DIALS AS PREVIEWED</button>
-      <button class="chip" data-g="q3" data-v="tune">CLOSE, TUNE IT (say what in notes)</button>
-      <button class="chip" data-g="q3" data-v="hold">HOLD</button>
-    </div>
+  <div class="q"><p class="qq"><b>Q3 · THE OPEN SKY — ✅ SENT 9/15.</b> Skylar: "lets use the alive version of this
+    one, but remove 'every star at once' … put this into the game." The build card fired on the local queue: the
+    unlit frame's 512×768 plate + the previewed living-layer dials (field 44+6, deep twinkle, ~3.5–7s crossings
+    clamped above the ridge), no subtitle. This chip group is closed.</p>
     <textarea class="notes" id="noteBox" placeholder="notes — combinations, second thoughts, anything (saved on this device, goes into COPY VERDICTS)"></textarea></div>
 
   <h2>V · WHAT A BUILD WOULD COST (honest)</h2>
@@ -523,7 +524,7 @@ function copyVerdicts(){
   L.push('monuments: '+(state.monuments||'(open)'));
   L.push('Q1 legendary color: '+(state.q1||'(open)'));
   L.push('Q2 rectangles dress: '+(state.q2||'(open)'));
-  L.push('Q3 open sky art: '+(state.q3||'(open)'));
+  L.push('Q3 open sky: SENT 9/15 — build fired on the local queue');
   if(state.note) L.push('notes: '+state.note);
   var txt=L.join('\n');
   function done(){var c=document.getElementById('copied');c.hidden=false;setTimeout(function(){c.hidden=true;},2600);}
@@ -605,15 +606,15 @@ document.querySelectorAll('.plqart .lglow, .sigrow .lglow').forEach(function(g){
   var isRow=host.classList.contains('sigrow');
   for(var k=0;k<9;k++){
     var sp=document.createElement('span');sp.className='lspark';
-    sp.style.left=(isRow?(26+Math.random()*46):(37+Math.random()*26))+'%';
-    sp.style.top=(isRow?(40+Math.random()*40):(46+Math.random()*38))+'%';
+    sp.style.left=(isRow?(20+Math.random()*56):(37+Math.random()*26))+'%';
+    sp.style.top=(isRow?(34+Math.random()*42):(46+Math.random()*38))+'%';
     sp.style.setProperty('--dx',((Math.random()*36)-18).toFixed(0)+'px');
     sp.style.setProperty('--dy',(-((isRow?14:22)+Math.random()*(isRow?22:34))).toFixed(0)+'px');
     sp.style.setProperty('--du',(2.6+Math.random()*2.4).toFixed(2)+'s');
     sp.style.setProperty('--de',(Math.random()*3.4).toFixed(2)+'s');
     host.appendChild(sp);
   }
-  (isRow?[[22,36],[76,38],[24,72],[74,70]]:[[31,23],[67,25],[30,83],[68,81]]).forEach(function(p){
+  (isRow?[[17,31],[84,33],[18,72],[83,70]]:[[31,23],[67,25],[30,83],[68,81]]).forEach(function(p){
     var st=document.createElement('span');st.className='lstar';st.textContent='✦';
     st.style.left=p[0]+'%';st.style.top=p[1]+'%';
     st.style.setProperty('--du',(3+Math.random()*2.5).toFixed(2)+'s');
