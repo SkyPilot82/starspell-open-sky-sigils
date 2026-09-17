@@ -270,15 +270,18 @@
   epic, a <b style="color:var(--c-legend)">glowing orange</b> legendary that breathes, sparks and shimmers. The first
   night's portrait plaques didn't fit this surface — they moved to §III. <b>9/15:</b> per Skylar, the rows now show
   the <b>frame-only cut</b> — "just the center part, not everything surrounding it" — the painted scenery trimmed to
-  the frame and its glow; the full scenic frames stand in the alternates as the record.</p>
+  the frame and its glow; the full scenic frames stand in the alternates as the record. <b>9/17, Skylar's frame
+  picks:</b> COMMON frame 4 · EPIC frame 3 · LEGENDARY frame 4 — the rows below wear them. RARE gets a fresh
+  "more rectangular" roll to match; ⚠ <b>blocked for now: the Midjourney account's subscription has lapsed</b>
+  (the imagine bar won't submit — "Let's Find Your Subscription") — the reroll fires the moment it's renewed.</p>
 
   <div class="stage">
     <div style="flex:0 0 auto;width:min(350px,100%);margin:0 auto">
       <div class="phone">
         <div class="act">ACT I · THE MEADOW SKY</div>
         <div class="choose">— CHOOSE A SIGIL —</div>
-        <div class="sigrow" style="aspect-ratio:1445/569"><img src="art/cut_common.webp" alt="common row — carved wood and bronze, frame only">
-          <div class="rowpanel ink-common" style="left:18.6%;top:27.8%;width:64%;height:49.4%">
+        <div class="sigrow" style="aspect-ratio:1428/461"><img src="art/cut_common.webp" alt="common row — carved wood and bronze, frame only">
+          <div class="rowpanel ink-common" style="left:10%;top:21%;width:80%;height:60%">
             <div class="roundel"><span>❦</span></div>
             <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="ds">Every word deals +4 damage.</div></div>
           </div></div>
@@ -310,8 +313,8 @@
   <p class="sub" style="font-size:13px">Real game text; the one sigil in the book whose ladder touches every grade.
   The legendary row breathes, sparks and shimmers — build note: that motion is re-added in-engine, never baked.</p>
   <div class="bigrows">
-    <div class="sigrow" style="aspect-ratio:1445/569"><img src="art/cut_common.webp" alt="">
-      <div class="rowpanel ink-common" style="left:18.6%;top:27.8%;width:64%;height:49.4%">
+    <div class="sigrow" style="aspect-ratio:1428/461"><img src="art/cut_common.webp" alt="">
+      <div class="rowpanel ink-common" style="left:10%;top:21%;width:80%;height:60%">
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">COMMON · I</div><div class="ds">Every word deals +4 damage.</div></div>
       </div></div>
@@ -320,8 +323,8 @@
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">RARE · II</div><div class="ds">Every word deals +6 damage.</div></div>
       </div></div>
-    <div class="sigrow" style="aspect-ratio:1344/633"><img src="art/cut_epic.webp" alt="">
-      <div class="rowpanel ink-epic" style="left:17.5%;top:34.1%;width:62.5%;height:46.6%">
+    <div class="sigrow" style="aspect-ratio:1344/540"><img src="art/cut_epic.webp" alt="">
+      <div class="rowpanel ink-epic" style="left:12%;top:26%;width:76%;height:56%">
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">EPIC · III</div><div class="ds">Every word deals +8 damage.</div></div>
       </div></div>
@@ -330,7 +333,8 @@
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">LEGENDARY · IV</div><div class="ds">Every word deals +11 damage.</div></div>
       </div></div>
-    <div class="cap">THE FRAME-ONLY CUTS AT READING SIZE (Skylar 9/15: "just the center part") — PICK FRAMES BELOW</div>
+    <div class="cap">THE FRAME-ONLY CUTS, WEARING THE 9/17 PICKS (common 4 · epic 3 · legendary 4) — RARE'S
+    RECTANGULAR REROLL AWAITS THE MJ RENEWAL</div>
   </div>
 
   <h3>PICK EACH ROW — 4 FRAMES PER RARITY (chip = your pick)</h3>
@@ -509,7 +513,9 @@ document.addEventListener('click',function(e){
   state[g]=(state[g]===v?null:v); save(); paint();
 });
 /* defaults: the mock's picks, first visit only */
-if(!('sky' in state)){state.sky='d2';state.common='2';state.rare='4';state.epic='2';state.legendary='4';save();}
+if(!('sky' in state)){state.sky='d2';state.common='4';state.rare='4';state.epic='3';state.legendary='4';save();}
+/* Skylar's 9/17 picks override any earlier defaults on this device */
+if(!state.picked917){state.common='4';state.epic='3';state.legendary='4';state.picked917=1;save();}
 paint();
 var nb=document.getElementById('noteBox');
 nb.value=state.note||'';
