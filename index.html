@@ -276,9 +276,9 @@
   the frame and its glow; the full scenic frames stand in the alternates as the record. <b>9/17, Skylar's frame
   picks:</b> COMMON frame 4 · EPIC frame 3 · LEGENDARY frame 4 — the rows below wear them. RARE gets a fresh
   "more rectangular" roll to match. <b>9/30:</b> the subscription renewed and the reroll fired — four true
-  rectangles this time; the rows below wear <b>FRAME 3</b> provisionally (thin straight edges, sharp corners,
-  the coolest blue of the roll). The chip below rules it — the 9/13 roll and the glass roll stand flagged as
-  the record. <b>Shape note (Skylar 9/30, three rounds):</b> MJ drew every rare glass near 2:1 while its kin run
+  rectangles this time; the rows below wear <b>FRAME 3</b> (thin straight edges, sharp corners,
+  the coolest blue of the roll). <b>9/30, Skylar's verdict: RARE = FRAME 3</b> — all four rarities are now
+  picked; the 9/13 roll and the glass roll stand flagged as the record. <b>Shape note (Skylar 9/30, three rounds):</b> MJ drew every rare glass near 2:1 while its kin run
   2.4–3.1, so the rare row towered; cropping to the frame only made the glass fill its image edge-to-edge;
   and matching rare to its kin still left common the short outlier on the phone sheet ("we need all the
   rectangle boxes to be the same size"). The law that stuck: <b>every rarity row is one box — 49:20 — with
@@ -346,7 +346,7 @@
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">LEGENDARY · IV</div><div class="ds">Every word deals +11 damage.</div></div>
       </div></div>
     <div class="cap">THE FRAME-ONLY CUTS, WEARING THE 9/17 PICKS (common 4 · epic 3 · legendary 4) — RARE
-    WEARS THE 9/30 REROLL'S FRAME 3, PROVISIONAL — PICK ITS FRAME BELOW</div>
+    WEARS THE 9/30 REROLL'S FRAME 3 — SKYLAR'S PICK 9/30; ALL FOUR RARITIES PICKED</div>
   </div>
 
   <h3>PICK EACH ROW — 4 FRAMES PER RARITY (chip = your pick)</h3>
@@ -535,6 +535,8 @@ if(!('sky' in state)){state.sky='d2';state.common='4';state.rare='4';state.epic=
 if(!state.picked917){state.common='4';state.epic='3';state.legendary='4';state.picked917=1;save();}
 /* 9/30: the rare chips now mean the rectangular reroll — clear the stale unpicked default once */
 if(!state.rare930){state.rare=null;state.rare930=1;save();}
+/* 9/30 evening: Skylar's verdict — rare = reroll frame 3 */
+if(!state.picked930r){state.rare='3';state.picked930r=1;save();}
 paint();
 var nb=document.getElementById('noteBox');
 nb.value=state.note||'';
