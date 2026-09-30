@@ -209,7 +209,10 @@
     --ar 7:3): row common 92bcfc6c-94fa-4bfe-a634-aa381d0194b3 · row rare GLASS ROLL d955ebf2-8743-4595-8726-5a6df9283b34
     (came back as transparent windows — no dark panel; kept in the alternates, flagged) · row rare DARK REROLL
     d05d7bad-05a3-49e9-9f94-5531eee8b409 ("… solid very dark navy empty panel … --no transparent glass window") ·
-    row epic 7d0a1b38-a31d-476e-b31e-015ffefe9dfa · row legendary 6ca61e73-5c87-4267-b287-4858c17799d5.
+    row epic 7d0a1b38-a31d-476e-b31e-015ffefe9dfa · row legendary 6ca61e73-5c87-4267-b287-4858c17799d5 ·
+    row rare RECTANGULAR REROLL 9/30 cd3da0cd-751f-4557-bcc7-5babfc25a606 ("thin elegant straight edges and
+    clean sharp corners … --no … transparent glass window, crystals, rocks, boulders" — fired after the MJ
+    renewal; the 9/18 attempt died on the usage limit, finished from Skylar's console 9/30).
     9/15: the displayed rows are FRAME-ONLY CUTS of the picked frames (cut_*.webp; scenery trimmed to the frame +
     glow per Skylar's crop) — a build's alpha-mask cut starts from these bounds.</code>
   </details></div>
@@ -272,8 +275,10 @@
   the <b>frame-only cut</b> — "just the center part, not everything surrounding it" — the painted scenery trimmed to
   the frame and its glow; the full scenic frames stand in the alternates as the record. <b>9/17, Skylar's frame
   picks:</b> COMMON frame 4 · EPIC frame 3 · LEGENDARY frame 4 — the rows below wear them. RARE gets a fresh
-  "more rectangular" roll to match; ⚠ <b>blocked for now: the Midjourney account's subscription has lapsed</b>
-  (the imagine bar won't submit — "Let's Find Your Subscription") — the reroll fires the moment it's renewed.</p>
+  "more rectangular" roll to match. <b>9/30:</b> the subscription renewed and the reroll fired — four true
+  rectangles this time; the rows below wear <b>FRAME 3</b> provisionally (thin straight edges, sharp corners,
+  the coolest blue of the roll). The chip below rules it — the 9/13 roll and the glass roll stand flagged as
+  the record.</p>
 
   <div class="stage">
     <div style="flex:0 0 auto;width:min(350px,100%);margin:0 auto">
@@ -285,8 +290,8 @@
             <div class="roundel"><span>❦</span></div>
             <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="ds">Every word deals +4 damage.</div></div>
           </div></div>
-        <div class="sigrow" style="aspect-ratio:1311/634"><img src="art/cut_rare.webp" alt="rare row — sapphire crystal, frame only">
-          <div class="rowpanel ink-rare" style="left:9%;top:33%;width:82%;height:47.7%">
+        <div class="sigrow" style="aspect-ratio:974/496"><img src="art/cut_rare.webp" alt="rare row — sapphire crystal, frame only">
+          <div class="rowpanel ink-rare" style="left:12%;top:17%;width:76%;height:64%">
             <div class="roundel"><span>↯</span></div>
             <div class="rowtx"><div class="nm">STORMBINDER</div><div class="ds">Every third word you cast strikes twice.</div></div>
           </div></div>
@@ -318,8 +323,8 @@
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">COMMON · I</div><div class="ds">Every word deals +4 damage.</div></div>
       </div></div>
-    <div class="sigrow" style="aspect-ratio:1311/634"><img src="art/cut_rare.webp" alt="">
-      <div class="rowpanel ink-rare" style="left:9%;top:33%;width:82%;height:47.7%">
+    <div class="sigrow" style="aspect-ratio:974/496"><img src="art/cut_rare.webp" alt="">
+      <div class="rowpanel ink-rare" style="left:12%;top:17%;width:76%;height:64%">
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">RARE · II</div><div class="ds">Every word deals +6 damage.</div></div>
       </div></div>
@@ -333,8 +338,8 @@
         <div class="roundel"><span>❦</span></div>
         <div class="rowtx"><div class="nm">EMBER QUILL</div><div class="gr">LEGENDARY · IV</div><div class="ds">Every word deals +11 damage.</div></div>
       </div></div>
-    <div class="cap">THE FRAME-ONLY CUTS, WEARING THE 9/17 PICKS (common 4 · epic 3 · legendary 4) — RARE'S
-    RECTANGULAR REROLL AWAITS THE MJ RENEWAL</div>
+    <div class="cap">THE FRAME-ONLY CUTS, WEARING THE 9/17 PICKS (common 4 · epic 3 · legendary 4) — RARE
+    WEARS THE 9/30 REROLL'S FRAME 3, PROVISIONAL — PICK ITS FRAME BELOW</div>
   </div>
 
   <h3>PICK EACH ROW — 4 FRAMES PER RARITY (chip = your pick)</h3>
@@ -486,11 +491,16 @@ html='';
 RAR.forEach(function(r){
   html+='<h3 style="margin-top:1.2em">'+r[1]+'</h3><div class="altrow">';
   for(var n=0;n<4;n++){
-    var f=(r[0]==='rare')?('row_rareb'+n+'_t'):('row_'+r[0]+n+'_t');
+    var f=(r[0]==='rare')?('row_rarec'+n+'_t'):('row_'+r[0]+n+'_t');
     html+='<div class="alt"><img loading="lazy" src="art/'+f+'.webp" alt="">'
         +'<button class="chip" data-g="'+r[0]+'" data-v="'+(n+1)+'">FRAME '+(n+1)+'</button></div>';
   }
   if(r[0]==='rare'){
+    for(var m=0;m<4;m++){
+      html+='<div class="alt"><img loading="lazy" src="art/row_rareb'+m+'_t.webp" alt="">'
+          +'<div class="flag">⚠ the 9/13 roll — Skylar passed 9/17 (wanted a cleaner rectangle); kept for the record</div>'
+          +'<button class="chip" data-g="rare" data-v="b'+(m+1)+'">9/13 FRAME '+(m+1)+'</button></div>';
+    }
     for(var m=0;m<4;m++){
       html+='<div class="alt"><img loading="lazy" src="art/row_rare'+m+'_t.webp" alt="">'
           +'<div class="flag">⚠ glass roll — no dark panel for the text; kept for the record</div>'
@@ -516,6 +526,8 @@ document.addEventListener('click',function(e){
 if(!('sky' in state)){state.sky='d2';state.common='4';state.rare='4';state.epic='3';state.legendary='4';save();}
 /* Skylar's 9/17 picks override any earlier defaults on this device */
 if(!state.picked917){state.common='4';state.epic='3';state.legendary='4';state.picked917=1;save();}
+/* 9/30: the rare chips now mean the rectangular reroll — clear the stale unpicked default once */
+if(!state.rare930){state.rare=null;state.rare930=1;save();}
 paint();
 var nb=document.getElementById('noteBox');
 nb.value=state.note||'';
